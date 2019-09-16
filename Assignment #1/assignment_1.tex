@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb, mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fixltx2e}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newcommand{\textfrac}[2]{\dfrac{\text{#1}}{\text{#2}}}
+
+\begin{document}
+
+\title{Advanced Calculus II: Assignment 1\\Chapter 2 - A Taste of Topology}
+
+\author{Chris Hayduk}
+\date{\today}
+
+\maketitle
+
+\begin{problem}{12 on p. 126}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*)]
+	\item
+	\item
+	\item A rearrangement of $(p_n)$ where $f$ is a surjective function does not necessarily preserve the limit $\ell$. For example, take $(p_n) = \frac{1}{n}$. This sequence converges to 0.\\
+	
+	Now let $f(n) = \begin{cases} 
+      1 & \mathrm{n \; is \; odd}\\
+      2 & \mathrm{n = 2}\\
+      f(n-2)+1 & \mathrm{n \; is \; even \; and \; n > 2}
+   \end{cases}$\\
+   
+   Call this new sequence $q_k = p_{f(k)}$. Then we have that $(q_k)$ contains all terms in the original sequence $(p_n)$ and, for every odd term $m$, $q_m = 1$. Thus, the even terms of $(q_k)$ converge to 0 while the odd terms converge to 1. Since we have two subsequences in $(q_k)$ that converge to different limits, $(q_k)$ does not converge.
+\end{enumerate}
+
+\begin{problem}{44 on p. 128}
+\end{problem}
+
+\begin{problem}{76 on p. 131}
+\end{problem}
+
+\begin{problem}{1 on p. 147}
+\end{problem}
+
+
+
+
+\end{document}
