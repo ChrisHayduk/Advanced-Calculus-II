@@ -40,9 +40,23 @@
 \end{problem}
 
 \begin{enumerate}[label=(\alph*)]
-	\item
-	\item
-	\item A rearrangement of $(p_n)$ where $f$ is a surjective function does not necessarily preserve the limit $\ell$. For example, take $(p_n) = \frac{1}{n}$. This sequence converges to 0.\\
+	\item The limit of a sequence is unaffected by rearrangement when $f$ is a bijective function. Since $f$ is bijective, each term from $(p_n)$ must be included one and only one time in the new sequence $(q_k)$.\\
+	
+	We know that, if $(p_n) \to \ell$, this means that $\forall \epsilon > 0, \exists N \in \mathbb{N}$ such that $n \geq N \implies \mathrm{d}(p_n, \ell) < \epsilon$.\\
+	
+	Thus, for each choice of $\epsilon > 0$ there are only finitely many terms for which $\mathrm{d}(p_n, \ell) \geq \epsilon$, while there are infinitely many terms for which $\mathrm{d}(p_n, \ell) < \epsilon$.\\
+	
+	As a result, the rearrangement $(q_k)$ will eventually exhaust all of the terms that have a distance from $\ell$ that is greater than or equal to $\epsilon$, and thus will have infinitely many terms left for which $\mathrm{d}(q_k, \ell) < \epsilon$.
+	
+	Hence, $(q_k) \to \ell$ as well.
+	
+	\item A rearrangement of $(p_n)$ where $f$ is an injective function does not necessarily preserve the limit of $(p_n)$. For example, take $(p_n) = (-1)^n$. This sequence alternates between 1 and -1, and thus never converges.\\
+	
+	Now let $f(n) = 2n$. This injective function maps the natural numbers to the evens. We can see that $\forall m$ where $m$ is even, we have that $p_m = 1$.\\
+	
+	Thus, $q_k = p_{f(k)} = 1 \; \forall k \in \mathbb{N}$. Clearly, $(q_k) \to 1$ while $(p_n)$ does not converge.
+	
+	\item A rearrangement of $(p_n)$ where $f$ is a surjective function does not necessarily preserve the limit of $(p_n)$. For example, take $(p_n) = \frac{1}{n}$. This sequence converges to 0.\\
 	
 	Now let $f(n) = \begin{cases} 
       1 & \mathrm{n \; is \; odd}\\
@@ -55,6 +69,8 @@
 
 \begin{problem}{44 on p. 128}
 \end{problem}
+
+
 
 \begin{problem}{76 on p. 131}
 \end{problem}
