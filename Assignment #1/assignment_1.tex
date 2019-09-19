@@ -70,13 +70,52 @@
 \begin{problem}{44 on p. 128}
 \end{problem}
 
+\begin{enumerate}[label=(\alph*)]
+	\item Yes, prove from definitions.
+	
+	\item Graph is the image of $(I, f): X \to X \; \mathrm{x} \; \mathbb{R}$ where $I$ is the identity function. Flesh out this proof.
+	
+	\item Graph is compact, so it has a limit point in the graph (Bolzano-Weierstrass). The limit point must be a limit point in each coordinate, so $f$ must approach this limit point. Thus, $f$ is continuous. FLESH THIS OUT MORE.
+	
+	\item Counterexample:\\
+	$f: [0, 1] \to \mathbb{R}$\\
+	
+	$f(x) = \begin{cases} 
+      \frac{1}{x} & x \neq 0 \\
+      0 & x = 0
+   \end{cases}$
+   
+   $f$ is discontinuous because if you have a sequence $(x_n) \to 0$, $f(x_n) \not\to f(0)$ since $f(0)$ is undefined.
+	
+\end{enumerate}
 
 
 \begin{problem}{76 on p. 131}
 \end{problem}
 
+\begin{enumerate}[label=(\alph*)]
+	\item Give counterexample.
+	
+	\item Let $S_n = \{x: x \geq n\}$. Then each $S_n$ is connected and closed, and we have $S_1 \supset S_2 \supset \cdots$.\\
+	
+	However, we have $\cap S_n = \emptyset$.
+	
+	\item Intersection is connected. Prove this.
+	
+	\item Connected but not path connected. Prove this.
+	
+\end{enumerate}
+
 \begin{problem}{1 on p. 147}
 \end{problem}
+
+From assumptions, $f$ is continuous.\\
+
+$x_n \to x_0$ have to prove $f(x_n) \to f(x_0)$\\
+
+Suffice to prove $x_i$ are distinct and $x_m = \{x_m, x_{m+1}, \cdots] \cup x_0$\\
+
+FLESH THIS OUT.
 
 
 
