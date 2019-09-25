@@ -12,6 +12,8 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
+
+\newcommand{\stcomp}[1]{{#1}^\complement}
  
 \newenvironment{theorem}[2][Theorem]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
@@ -71,11 +73,21 @@
 \end{problem}
 
 \begin{enumerate}[label=(\alph*)]
-	\item Yes, prove from definitions.
+	\item Since $f$ is continuous, then $\forall (p_n) \in M$ with a limit $p \in M$, we have $(p_n) \to p \implies f(p_n) \to f(p)$.\\
 	
-	\item Graph is the image of $(I, f): X \to X \; \mathrm{x} \; \mathbb{R}$ where $I$ is the identity function. Flesh out this proof.
+	Thus, for the graph of $f$, we have that $(p_n, f(p_n)) \to (p, f(p)) \in M \times f(M)$ for every sequence $(p_n, f(p_n)) \in M \times \mathbb{R}$.\\
 	
-	\item Graph is compact, so it has a limit point in the graph (Bolzano-Weierstrass). The limit point must be a limit point in each coordinate, so $f$ must approach this limit point. Thus, $f$ is continuous. FLESH THIS OUT MORE.
+	Hence, the continuity of $f$ implies that its graph is closed.
+	
+	\item Suppose $M$ is compact and $f$ is continuous. By Theorem 38, the continuous image of a compact set is compact. Thus, $f(M)$ is a compact subset of $\mathbb{R}$.\\
+	
+	Hence, the graph of $f$ is the Cartesian product of two compact sets, $M$ and $f(M)$. By Corollary 29, the graph of $f$ is compact as a result.
+	
+	\item Assume the graph of $f$ is compact. Since the graph is compact, the graph must be bounded. By Bolzano-Weierstrass, any sequence in the graph must have a convergent subsequence. Since compact also implies closed, the limit of this subsequence must reside in the graph.\\
+	
+	Let $(p_n, f(p_n))$ be one such sequence in the graph. Thus, $\exists (p_{n_k})$ such that $(p_{n_k}, f(p_{n_k}))$ converges to a limit point.\\
+	
+	The limit point must be a limit point in each coordinate, so we have $(p_{n_k}, f(p_{n_k})) \to (p, f(p))$. Thus, $f$ preserves sequential limits and, as a result, $f$ is continuous.
 	
 	\item Counterexample:\\
 	$f: [0, 1] \to \mathbb{R}$\\
@@ -85,22 +97,31 @@
       0 & x = 0
    \end{cases}$
    
-   $f$ is discontinuous because if you have a sequence $(x_n) \to 0$, $f(x_n) \not\to f(0)$ since $f(0)$ is undefined.
+   $f$ is discontinuous because if you have a sequence $(x_n) \to 0$, $f(x_n) \to 
+   \infty$ while $f(0) = 0$. Thus, $f(x_n) \not\to f(0)$. Hence, $f$ does not preserve sequential limits.
 	
 \end{enumerate}
-
+\newpage
 
 \begin{problem}{76 on p. 131}
 \end{problem}
 
 \begin{enumerate}[label=(\alph*)]
-	\item Give counterexample.
+	\item Let $A = \{(x, y): x^2 + y^2 = 1\}$, i.e. the unit circle.\\
+	
+	Let $B = \{(x, 0): x \in \mathbb{R}\}$, i.e. a straight line along the x-axis.\\
+	
+	Both sets are connected. Their intersection is $A \cap B = \{(-1, 0), (1, 0)\}$. This set is disconnected in $\mathbb{R}^2$.
 	
 	\item Let $S_n = \{x: x \geq n\}$. Then each $S_n$ is connected and closed, and we have $S_1 \supset S_2 \supset \cdots$.\\
 	
 	However, we have $\cap S_n = \emptyset$.
 	
-	\item Intersection is connected. Prove this.
+	\item Intersection is connected. Prove this.\\
+	
+	Assume that $S_1, S_2, ...$ are a sequence of connected, compact sets with $S_1 \supset S_2 \supset \cdots$.\\
+	
+	By Theorem 34, their intersection $\cap S_n$ is compact and non-empty.
 	
 	\item Connected but not path connected. Prove this.
 	
@@ -109,15 +130,14 @@
 \begin{problem}{1 on p. 147}
 \end{problem}
 
-From assumptions, $f$ is continuous.\\
+We know that the intersection of a nested sequence of nonempty compact sets is a nonempty compact set. Thus, $\cap K_n$ is nonempty and compact. Hence, for every sequence $(a_n) \in \cap K_n$, there exists a subsequence $(a_{n_k})$ that converges to some limit $a$ in $\cap K_n$.\\
 
-$x_n \to x_0$ have to prove $f(x_n) \to f(x_0)$\\
+By properties of intersections, every term in $(a_{n_k})$ is in $K_n$ for every $n$. Furthermore, $a \in K_n$ for every $n$.\\
 
-Suffice to prove $x_i$ are distinct and $x_m = \{x_m, x_{m+1}, \cdots] \cup x_0$\\
+Now, by property (i), $f(K_n)$ is compact as well for every $n$. Thus, $\cap f(K_n)$ is compact.\\
 
-FLESH THIS OUT.
+We know that each term in $(a_{n_k})$ is in $K_n$ for every $n$. As a result, each $f(a_{n_k})$ is in $f(K_n)$ for every $n$. Thus, the image of the sequence $(a_{n_k})$ is contained in $\cap f(K_n)$. In addition, $f(a) \in \cap f(K_n)$.\\
 
-
-
+Since $\cap f(K_n)$ is compact,
 
 \end{document}
