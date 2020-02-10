@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb, mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fixltx2e}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newcommand{\textfrac}[2]{\dfrac{\text{#1}}{\text{#2}}}
+
+\begin{document}
+
+\title{Advanced Calculus II: Assignment 1}
+
+\author{Chris Hayduk}
+\date{\today}
+
+\maketitle
+
+\begin{problem}{1}
+\end{problem}
+
+\begin{enumerate}[label=\alph*)]
+
+\item 
+
+\item Let $D_f \subset \mathbb{R}^n$ and let $f: D_f \to \mathbb{R}^m$. Also let $a \in D_f$.\\
+
+Suppose $f$ is continuous at $a$ and suppose $|| \cdot ||_{n1}, || \cdot ||_{m1}$ are norms on $\mathbb{R}^n$ and $\mathbb{R}^m$ respectively.\\
+
+Thus, by the definition of continuity, for every $\epsilon > 0$, there exists a $\delta > 0$ such that if $x \in D_f$ with $|| x - a ||_{n1} < \delta$, then $|| f(x) - f(a) ||_{m1} < \epsilon$.\\
+
+By part $(a)$, for any other arbitrary norms $|| \cdot ||_{n2}, || \cdot ||_{m2}$ on $\mathbb{R}^n$ and $\mathbb{R}^m$, we have that
+\begin{align*}
+&C_{n1} || x - a ||_{n1} \leq || x - a ||_{n2} \leq C_{n2} || x - a ||_{n1}\\
+&C_{m1} || f(x) - f(a) ||_{m1} \leq || f(x) - f(a) ||_{m2} \leq C_{m2} || f(x) - f(a) ||_{m1}
+\end{align*}
+
+for $C_{n1}, C_{n2}, C_{m1}, C_{m2} > 0$ and for every $x \in \mathbb{R}^n, f(x) \in \mathbb{R}^m$.\\
+
+Hence, $|| x - a ||_{n1} < \delta \implies C_{n2} || x - a ||_{n1} < C_{n2} \delta \implies || x - a ||_{n2} < C_{n2} \delta$ for every $x \in \mathbb{R}^n$.\\
+
+In addition, the reverse is true. We can see that if $|| x - a ||_{n2} < C_{n2} \delta$, then we have that 
+\begin{align*}
+&\frac{1}{C_{n2}} || x - a ||_{n2} < \delta\\
+\implies &
+\end{align*}
+
+\end{enumerate}
+
+\end{document}
