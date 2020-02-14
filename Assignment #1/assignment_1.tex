@@ -57,14 +57,62 @@ By part $(a)$, for any other arbitrary norms $|| \cdot ||_{n2}, || \cdot ||_{m2}
 
 for $C_{n1}, C_{n2}, C_{m1}, C_{m2} > 0$ and for every $x \in \mathbb{R}^n, f(x) \in \mathbb{R}^m$.\\
 
-Hence, $|| x - a ||_{n1} < \delta \implies C_{n2} || x - a ||_{n1} < C_{n2} \delta \implies || x - a ||_{n2} < C_{n2} \delta$ for every $x \in \mathbb{R}^n$.\\
+Hence, $|| x - a ||_{n1} < \delta \iff C_{n2} || x - a ||_{n1} < C_{n2} \delta \implies || x - a ||_{n2} < C_{n2} \delta$ for every $x \in \mathbb{R}^n$.\\
 
-In addition, the reverse is true. We can see that if $|| x - a ||_{n2} < C_{n2} \delta$, then we have that 
-\begin{align*}
-&\frac{1}{C_{n2}} || x - a ||_{n2} < \delta\\
-\implies &
-\end{align*}
+Now let $\delta' = \min\{\delta, C_{n2}\delta\}$.\\
+
+Then clearly we have that $|| x - a ||_{n1} < \delta' \implies || f(x) - f(a) ||_{m1} < \epsilon$ and $ || x - a ||_{n2} < \delta' \implies || f(x) - f(a) ||_{m1} < \epsilon$.\\
+
+
 
 \end{enumerate}
+
+\begin{problem}{2}
+\end{problem}
+
+Suppose $A$ is open. Then for every $x \in A$, $\exists r > 0$ such that $B(x, r) \subset A$.\\
+
+We know that a point $x' \in \mathbb{R}^n$ is a boundary point of $A$ if $\forall r > 0$, $\exists y_1, y_2 \in B(x', r)$ such that $y_1 \in A$ and $y_2 \in \mathbb{R}^n \setminus A$.\\
+
+Now suppose there exists a point $z \in \partial A$ such that $z \in A$. Then, by definition of the openness of $A$, $\exists r_z > 0$ such that $B(z, r_z) \subset A$. However, since $z \in \partial A$, we also have that $\exists y_z \in \mathbb{R}^n \setminus A$ such that $y_z \in B(z, r_z)$. Hence, $B(z, r_z) \not\subset A$, a contradiction.\\
+
+Thus we must have that, if $A$ is open, then $A \cap \partial A = \emptyset$.\\
+
+Now suppose $A \cap \partial A = \emptyset$. Then $A$ does not contain any of its boundary points. That is, there is no $x \in \mathbb{R}^n$ such that $\forall r > 0, \exists y_1, y_2 \in B(x, r)$ such that $y_1 \in A$ and $y_2 \in \mathbb{R}^n \setminus A$. Note that there is always a $y_1 \in B(x, r)$ with $y_1 \in A$ since $x \in B(x, r)$ and $x \in A$.\\
+
+Hence, for each $x \in A$, there must exist an $r > 0$ such that $B(x, r) \cap \left(\mathbb{R}^n \setminus A\right) = \emptyset$.\\
+
+Thus, $B(x, r)$ must be contained in the complement of $\mathbb{R}^n \setminus A$, which is $A$. Hence, A is open.\\
+
+Now suppose $A$ is closed. Then we have that $A^\mathsf{c} = \mathbb{R}^n \setminus A$ is open.\\
+
+By the above proof, we have that $A^\mathsf{c} \cap \partial A^\mathsf{c} = \emptyset$. In addition, observe that the definition for $\partial A^\mathsf{c}$ is the same as for $\partial A$:\\
+
+We know that a point $x \in \mathbb{R}^n$ is a boundary point of $A^\mathsf{c}$ if $\forall r > 0$, $\exists y_1, y_2 \in B(x, r)$ such that $y_1 \in A^\mathsf{c}$ and $y_2 \in \mathbb{R}^n \setminus A^\mathsf{c} = A$.\\
+
+This precisely the same definition given for a boundary point of $A$. Hence, we can rewrite the statement from above as: $A^\mathsf{c} \cap \partial A^\mathsf{c} = A^\mathsf{c} \cap \partial A = \emptyset$.\\
+
+Hence $\partial A \subset (A^\mathsf{c})^\mathsf{c} = A$, as required.\\
+
+Now suppose $\partial A \subset A$. Take $A^\mathsf{c}$.\\
+
+As we showed above, $\partial A = \partial A^\mathsf{c}$. Thus, we have $A^\mathsf{c} \cap \partial A = A^\mathsf{c} \cap \partial A^\mathsf{c} = \emptyset$.\\
+
+By the earlier proof, we thus have that $A^\mathsf{c}$ is open. Then, by definition, $A$ is closed.
+
+\begin{problem}{3}
+\end{problem}
+
+\begin{problem}{4}
+\end{problem}
+
+\begin{problem}{5}
+\end{problem}
+
+Let $f(x) = \begin{cases} 
+      \frac{1}{q} & x = \frac{p}{q}, p, q \in \mathbb{Z} \\
+      0 & x \text{ is irrational}
+   \end{cases}$
+
 
 \end{document}
