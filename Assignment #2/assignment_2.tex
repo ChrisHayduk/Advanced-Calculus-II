@@ -72,12 +72,53 @@ Hence, $[x - \epsilon, x + \epsilon] \not\subset \mathbb{I}$. This holds for eve
 \begin{problem}{3}
 \end{problem}
 
-Let $C \subset \mathbb{R}^p$ be open and suppose $C$ is connected.
+Let $C \subset \mathbb{R}^p$ be open and suppose $C$ is connected.\\
+
+Let $x \in C$. Let $U$ be the set of points that can be connected to $x$ by a path in $C$.\\
+
+Let $V = C \setminus U$. That is, $V$ is the set of points in $C$ which cannot be connected to $x$ via some path. So we have that $U \cap V = \emptyset$ and $U \cup V = C$.\\
+
+We will show that U and V are both open.\\
+
+Let $y \in U$ and let $f$ be a path connecting $x$ and $y$. Since $C$ open, $\exists B_r(y) \subset C$ with $r > 0$.\\
+
+For every $z \in B_r(y)$, there is a path $f$ connecting $y$ and $z$.\\
+
+Thus, $B_r(y) \subset U$. Since this holds for each $y \in U$, $U$ is open. A similar argument holds for $V$ showing that it is open.\\
+
+Since $C$ is connected, either $U$ or $V$ must then be the empty set. Assume $V = \emptyset$ without loss of generality. Since $C = U \cup V$ and $V = \emptyset$, we have that $C = U$.\\
+
+Since $U$ is path connected, we then have that $C$ is path connected as required.\\
+
+Now suppose $C$ is open and path connected. Also suppose that it is not connected for contradiction.\\
+
+Then $C = U \cup V$ where $U \cap V = \emptyset$, $U, V$ open, and $(U \cap C) \cup (V \cap C) = C$.\\
+
+Let $x \in U \cap C$ and $y \in V \cap C$. Since $C$ is path connected, $\exists$ a continuous function $f: [0, 1] \to C$ with $f(0) = x$ and $f(1) = y$.\\
+
+Then we have $[0, 1] = f^{-1}(U) \cup f^{-1}(V)$, which would be a nontrivial splitting of $[0, 1]$ by the continuity of $f$. This implies that $[0, 1]$ is disconnected, a contradiction.\\
+
+Hence $C$ open and path connected implies that $C$ is connected.
 
 \begin{problem}{4}
 \end{problem}
 
 \begin{problem}{5}
 \end{problem}
+
+Let $T$ be the topologist's sine curve. That is,
+\begin{align*}
+T = \left\{  \left( x, \sin \tfrac{1}{x}  \right ) :  x \in (0,1] \right\} \cup \{(0,0)\}
+\end{align*}
+
+$T$ is not path connected because it includes the point $(0, 0)$. However, the function $\left( x, \sin \tfrac{1}{x}  \right )$ cannot be extended to include this point such that it forms a path.\\
+
+Now observe that $A = \left\{  \left( x, \sin \tfrac{1}{x}  \right ) :  x \in (0,1] \right\}$ is path connected and hence connected.\\
+
+In addition, observe that the topologist's sine curve is the closure of $A$.\\
+
+Thus, $A \subset T \subset \overline{A}$.\\
+
+As a result, we have that $T$ is connected.
 
 \end{document}
