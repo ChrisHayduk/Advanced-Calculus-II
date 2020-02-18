@@ -39,6 +39,21 @@
 \begin{problem}{1}
 \end{problem}
 
+Let $x, y \in A$. Suppose $x \in C_y$ and $C_x \not\subset C_y$. That is, there are points in $C_x$ which are not connected to $y$.\\
+
+Let $C = C_x \cup C_y$. $C$ is clearly disconnected by the above reasoning. Then there exist open sets $B, D$ such that $C \cap B$, $C \cap D$ are disjoint, non-empty, and have union $C$.\\
+
+Since $C \cap B$, $C \cap D$ are disjoint, $x \in B$ or $x \in D$. Assume $x \in B$ without loss of generality.\\
+
+We know $x \in C_y$ by assumption. Since $C_y$ is connected, it must all be contained in $B$, otherwise it would be split between $C_y \cap B$, $C_y \cap D$ where they are both non-empty, disjoint, and where the union is $C_y$, a contradiction.\\
+
+In addition, we know $C \cap D$ is non-empty. Since $C_y \subset B$, then elements of $C_x$ must be in $D$. However, $x \in B$.\\
+
+Hence, if we take $C_x \cap B$ and $C_x \cap D$, we have two non-empty, disjoint sets with a union equal to $C_x$. However, $C_x$ is connected by definition, so this is a contradiction.\\
+
+Thus, we have that $C_x \subset C_y$.\\
+
+If we swap $x$ with $y$ in the above proof, we get that $C_y \subset C_x$. Hence $C_x = C_y$ if $C_x \cap C_y \neq \emptyset$.
 \begin{problem}{2}
 \end{problem}
 
@@ -48,9 +63,21 @@ Since $\mathbb{Q}$ is countable, $\mathbb{R}$ is uncountable, and $\mathbb{R} = 
 
 Now observe that $\mathbb{Q}$ is dense in $\mathbb{R}$. That is, for every $x_1, x_2 \in \mathbb{R}$ with $x_1 < x_2$, $\exists y \in \mathbb{Q}$ such that $x_1 < y < x_2$. Since $\mathbb{I} \subset \mathbb{R}$, we see that $\mathbb{Q}$ divides $\mathbb{I}$ in such a manner.\\
 
+Lastly, from Theorem 12.8 in the text, we know that a subset of $\mathbb{R}$ is connected if and only if it is an interval.\\
+
+Now let $x \in \mathbb{I}$ and let $\epsilon > 0$ be arbitrarily small. Take the interval $[x - \epsilon, x + \epsilon]$. Since there exists a rational number between any two real numbers, and we have that $x, x + \epsilon \in \mathbb{R}$, we have that $\exists y \in \mathbb{Q}$ such that $y \in [x, x + \epsilon]$.\\
+
+Hence, $[x - \epsilon, x + \epsilon] \not\subset \mathbb{I}$. This holds for every $\epsilon > 0$, so there are no interval subsets of $\mathbb{I}$. Since these are the only connected subsets of $\mathbb{R}$, $\mathbb{I}$ is totally disconnected.
+
 \begin{problem}{3}
 \end{problem}
 
 Let $C \subset \mathbb{R}^p$ be open and suppose $C$ is connected.
+
+\begin{problem}{4}
+\end{problem}
+
+\begin{problem}{5}
+\end{problem}
 
 \end{document}
