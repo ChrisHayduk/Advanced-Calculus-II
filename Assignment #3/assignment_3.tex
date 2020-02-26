@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb, mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fixltx2e}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newcommand{\textfrac}[2]{\dfrac{\text{#1}}{\text{#2}}}
+
+\begin{document}
+
+\title{Advanced Calculus II: Assignment 3}
+
+\author{Chris Hayduk}
+\date{\today}
+
+\maketitle
+
+\begin{problem}{1}
+\end{problem}
+
+Let $L_1, L_2, L_3 \in L(\mathbb{R}^n, \mathbb{R}^m)$. Then all of these functions are linear transformation from $\mathbb{R}^n$ to $\mathbb{R}^m$. We will now use these properties to show that $L(\mathbb{R}^n, \mathbb{R}^m)$ is a vector space:
+
+\begin{enumerate}
+
+\item Associativity of addition
+\begin{align*}
+(L_1 + L_2)(x) + L_3(x) &= L_1(x) + L_2(x) + L_3(x)\\
+&= L_1(x) + (L_2 + L_3)(x)
+\end{align*}
+
+\item Commutativity of addition
+
+\item Identity element of addition\\
+
+Let $L_0$ be the function that assigns the $0$ vector in $\mathbb{R}^m$ to every vector in $\mathbb{R}^n$. We must first show that this is a linear transformation.\\
+
+Let $u, v \in \mathbb{R}^n$ and let $c \in \mathbb{R}$. Then,
+\begin{align*}
+L_0(u + v) = 0 = L_0(u) + L_0(v)
+\end{align*}
+
+and,
+\begin{align*}
+L_0(cu) = 0 = c0 = cL(u)
+\end{align*}
+
+Thus $L_0 \in L(\mathbb{R}^n, \mathbb{R}^m)$. Now to show that it is the identity element of addition in that set:
+\begin{align*}
+(L_0 + L_1)(x) &= L_0(x) + L_1(x)\\
+&= 0 + L_1(x)\\
+&= L_1(x)
+\end{align*}
+
+\item Inverse elements of addition
+
+\end{enumerate}
+
+\begin{problem}{2}
+\end{problem}
+
+
+\begin{problem}{3}
+\end{problem}
+
+
+\begin{problem}{4}
+\end{problem}
+
+
+\begin{problem}{5}
+\end{problem}
+
+
+\end{document}
