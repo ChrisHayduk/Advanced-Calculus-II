@@ -51,7 +51,20 @@ Let $L_1, L_2, L_3 \in L(\mathbb{R}^n, \mathbb{R}^m)$. Then all of these functio
 
 \item Commutativity of addition
 
-\item Identity element of addition\\
+\begin{align*}
+(L_1 + L_2)(x) &= L_1(x) + L_2(x)
+\end{align*}
+
+We have that $L_1(x), L_2(x) \in \mathbb{R}^m$ for every $x \in \mathbb{R}^n$. Since $\mathbb{R}^m$ is a vector space, we must have that,
+\begin{align*}
+(L_1 + L_2)(x) &= L_1(x) + L_2(x)\\
+&= L_2(x) + L_1(x)\\
+&= (L_2 + L_1)(x)
+\end{align*}
+
+as required.
+
+\item Identity element of addition
 
 Let $L_0$ be the function that assigns the $0$ vector in $\mathbb{R}^m$ to every vector in $\mathbb{R}^n$. We must first show that this is a linear transformation.\\
 
@@ -74,11 +87,121 @@ Thus $L_0 \in L(\mathbb{R}^n, \mathbb{R}^m)$. Now to show that it is the identit
 
 \item Inverse elements of addition
 
+First we will show that $-L_1(x)$ is a linear transformation.\\
+
+Let $u, v \in \mathbb{R}^n$ and let $c \in \mathbb{R}$. Then,
+\begin{align*}
+-L_1(u + v) &= -(L_1(u) + L_1(v))\\
+&= -L_1(u) + -L_1(v)
+\end{align*}
+
+and,
+\begin{align*}
+c(-L_1(u)) = (-c)L_1(u) = -L_1(cu)
+\end{align*}
+
+Thus $-L_1 \in L(\mathbb{R}^n, \mathbb{R}^m)$. Now to show that it is the inverse element of addition in that set:
+\begin{align*}
+(L_1 + -L_1)(x) &= L_1(x) + -L_1(x)\\
+&= 0
+\end{align*}
+
+\item Compatibility of scalar multiplication with field multiplication
+
+Let $a, b \in \mathbb{R}$. Then, using properties of linear transformations, we have
+\begin{align*}
+a(bL_1(x)) &= a(L_1(bx))\\
+&= L_1(a(bx))\\
+&= L_1((ab)x)\\
+&= (ab)L_1(x)
+\end{align*}
+
+\item Identity element of scalar multiplication	
+
+Let $1 \in \mathbb{R}$. Since $\mathbb{R}^n$ is a vector space with $1$ as the scalar multiplication identity, we have that $1x = x$ for every $x \in \mathbb{R}^n$. Moreover, by properties of linear transformations, we have,
+
+\begin{align*}
+(1)L_1(x) &= L_1(1x)\\
+&= L_1(x)
+\end{align*}
+
+\item Distributivity of scalar multiplication with respect to vector addition
+
+Let $c \in \mathbb{R}$. Since $L_1(u), L_2(v) \in \mathbb{R}^m$ and $\mathbb{R}^m$ is an $\mathbb{R}$ vector space, we must necessarily have that 
+
+\begin{align*}
+c(L_1(x) + L_2(x)) = cL_1(x) + cL_2(x)
+\end{align*}
+
+\item Distributivity of scalar multiplication with respect to field addition
+
+Let $a, b \in \mathbb{R}$. Moreover, let $d = a+b$. Then,
+\begin{align*}
+(a+ b)L_1(x) &= dL_1(x)\\
+&= L_1(dx)\\
+&= L_1((a+b)x)\\
+&= L_1(ax + bx)\\
+&= L_1(ax) + L_1(bx)\\
+&= aL_1(x) + bL_1(x)
+\end{align*}
 \end{enumerate}
+
+Hence, $L(\mathbb{R}^n, \mathbb{R}^m)$ together with the standard addition and scalar multiplication is an $\mathbb{R}$ vector space.
 
 \begin{problem}{2}
 \end{problem}
 
+We will show that $||T|| = \sup \{||T(x)||: ||x|| \leq 1\}$ defines a norm on $L(\mathbb{R}^n, \mathbb{R}^m)$.\\
+
+Let $T_1, T_2 \in L(\mathbb{R}^n, \mathbb{R}^m)$. We must check the three norm properties:
+
+\begin{enumerate}
+
+\item We have that,
+\begin{align*}
+||T_1 + T_2|| &= \sup \{||(T_1 + T_2)(x)||: ||x|| \leq 1 \}\\
+&= \sup \{||T_1(x) + T_2(x)||: ||x|| \leq 1 \}
+\end{align*}
+
+Since $T_1(x), T_2(x) \in \mathbb{R}^m$ for every $x \in \mathbb{R}^n$, we have that $||T_1(x) + T_2(x)|| \leq ||T_1(x)|| + ||T_2(x)||$ for any valid norm on $\mathbb{R}^m$. Hence, we have,
+\begin{align*}
+||T_1 + T_2|| &= \sup \{||T_1(x) + T_2(x)||: ||x|| \leq 1 \}\\
+&\leq \sup \{||T_1(x)|| + ||T_2(x)||: ||x|| \leq 1 \}\\
+&= ||T_1|| + ||T_2||
+\end{align*}
+
+\item Let $a \in \mathbb{R}$. By properties of norms and supremum, we have
+
+\begin{align*}
+||aT_1|| &= \sup \{||aT_1(x)||: ||x|| \leq 1 \}\\
+&= \sup \{|a| \cdot ||T_1(x)||: ||x|| \leq 1 \}\\
+&= |a| \sup \{||T_1(x)||: ||x|| \leq 1 \}\\
+&= |a| \cdot ||T_1||
+\end{align*}
+
+\item Suppose $||T|| = 0$. Then need to show that $T = \boldsymbol{0}$ where $\boldsymbol{0}$ is the $0$ vector in $\mathbb{R}^m$. We have,
+
+\begin{align*}
+||T|| &= \sup \{||T(x)||: ||x|| \leq 1\}
+\end{align*}
+
+Since any valid norm on $\mathbb{R}^m$ is non-negative and the supremum of $||T(x)||$ with $||x|| \leq 1$ is $0$, we must have that $||T(x)|| = 0$ for all $||x|| \leq 1$ and hence $T(x) = 0$ for all $||x|| \leq 1$.\\
+
+Now suppose $\exists x_1$ with $||x_1|| > 1$ and $||T(x_1)|| \neq 0$ (that is, $T(x_1) = 0$).\\
+
+Write $x_1$ as a linear combination of basis vectors. Hence, $x_1 = c_1e_1 + c_2e_2 + \cdots + c_ne_n$. Then we have,
+\begin{align*}
+||T(x_1)|| &= ||T(c_1e_1 + c_2e_2 + \cdots + c_ne_n)||\\
+&= ||T(c_1e_1) + \cdots + T(c_ne_n)||
+&= ||c_1T(e1) + \cdots + c_nT(e_n)||
+&= ||c_1(0) + \cdots c_n(0)||\\
+&= ||0|| = 0
+\end{align*}
+
+However, we supposed that $||T(x_1)|| \neq 0$, a contradiction. Thus, $T(x) = \boldsymbol{0}$.
+\end{enumerate}
+
+Thus, the operator norm defines a valid norm on $L(\mathbb{R}^n, \mathbb{R}^m)$.
 
 \begin{problem}{3}
 \end{problem}
@@ -87,9 +210,60 @@ Thus $L_0 \in L(\mathbb{R}^n, \mathbb{R}^m)$. Now to show that it is the identit
 \begin{problem}{4}
 \end{problem}
 
+Suppose $f$ is even and differentiable. Then,
+
+\begin{align*}
+f'(-x) &= \lim_{h \to 0} \frac{f(-x+h) - f(-x)}{h}\\
+&= \lim_{h \to 0} \frac{f(x-h) - f(x)}{h}\\
+&= - \lim_{h \to 0} \frac{f(x) - f(x-h)}{h}\\
+&= -f'(x)
+\end{align*}
+
+Hence, $f'$ is odd.
+
 
 \begin{problem}{5}
 \end{problem}
+
+We have,
+\begin{align*}
+f'(0) &= \lim_{h \to 0} \frac{f(0 + h) - f(0)}{h}\\
+&= \lim_{h \to 0} \frac{h^2 \sin(1/h) - 0}{h}\\
+&= \lim_{h \to 0} h \sin(1/h)
+\end{align*}
+
+We have that $|\sin(1/h)| \leq 1$ for every value of $h$. Hence,
+
+\begin{align*}
+|h \sin(1/h)| \leq |h|
+\end{align*}
+
+Thus,
+\begin{align*}
+&- \lim_{h \to 0} |h| \leq \lim_{h \to 0} h \sin(1/h) \leq \lim_{h \to 0} |h|\\
+\implies &0 \leq \lim_{h \to 0} h \sin(1/h) \leq 0\\
+\implies &\lim_{h \to 0} h = 0
+\end{align*}
+
+Hence, $f'(0)$ exists and equals $0$.\\
+
+Now need to show that $f'$ is not continuous at $0$. We have that,
+
+\begin{align*}
+f'(x) = \begin{cases} 
+      2x \sin(1/x) - \cos(1/x) & x \neq 0 \\
+      0 & x = 0
+   \end{cases}
+\end{align*}
+
+Observe that,
+\begin{align*}
+\lim_{x \to 0} f'(x) &= \lim_{x \to 0} 2x \sin(1/x) - \cos(1/x)\\
+&= \lim_{x \to 0} 2x \sin(1/x) - \lim_{x \to 0} \cos(1/x)\\
+&= - \lim_{x \to 0} \cos(1/x)
+\end{align*}
+
+This limit is undefined, and so $f'(0) \neq \lim_{x \to 0} f'(x)$. Hence, $f'(x)$ is not continuous at $0$.
 
 
 \end{document}
