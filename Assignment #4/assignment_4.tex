@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb, mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fixltx2e}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newcommand{\textfrac}[2]{\dfrac{\text{#1}}{\text{#2}}}
+
+\begin{document}
+
+\title{Advanced Calculus II: Assignment 4}
+
+\author{Chris Hayduk}
+\date{\today}
+
+\maketitle
+
+\begin{problem}{1}
+\end{problem}
+
+\begin{problem}{2}
+\end{problem}
+
+\begin{problem}{3}
+\end{problem}
+
+Show that $f$ is partial differentiable with respect to any $(a, b) \in \mathbb{R}^2$:\\
+
+Not continuous: Observe that $f$ is defined for every point in $\mathbb{R}^2$ except for $(0, 0)$. Hence, we can approach $(0, 0)$ on any line. Thus, let $x = y^2$. Then, we have,
+\begin{align*}
+f(y^2, y) &= \frac{y^2y^2}{(y^2)^2 + y^4}\\
+&= \frac{y^4}{y^4 + y^4}\\
+&= \frac{y^4}{y^4(1 + 1)}\\
+&= \frac{1}{2}
+\end{align*}
+
+Thus, $\lim_{(y^2, y) \to (0, 0)} f(x, y) = \frac{1}{2}$.\\
+
+Now approach on the line $x = 0$. This yields,
+\begin{align*}
+f(0, y) &= \frac{(0)y^2}{(0)^2 + y^4}\\
+&= \frac{0}{y^4}\\
+&= 0
+\end{align*}
+
+Hence, $\lim_{(0, y) \to (0, 0)} f(x, y) = 0 \neq \lim_{(y^2, y) \to (0, 0)} f(x, y)$.\\
+
+We can see that the limit as we approach $(0, 0)$ is different depending upon the line we approach it from. Hence $f$ is not continuous at $(0, 0)$.
+
+\begin{problem}{4}
+\end{problem}
+
+\begin{problem}{5}
+\end{problem}
+
+\end{document}
