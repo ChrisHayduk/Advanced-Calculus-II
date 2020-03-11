@@ -165,7 +165,17 @@ D_1f(c) &= v_1' \\
 D_nf(c) &= v_n' 
 \end{align*}
 
-Hence, we have that $v_c = v_c'$ and thus the gradient of $f$ at $c$ is unique.
+Hence, we have that $v'c$ has the same components as $v_c$. As a result, $v_c = v_c'$ and thus $v_c$ (ie. the gradient of $f$ at $c$) is unique.\\
+
+Now suppose $||u|| = 1$ and $u$ is a positive multiple of grad $f(c)$. That is, $u = a v_c$ for some real number $a > 0$. Hence, we have that,
+
+\begin{align*}
+D_uf(c) &= Df(c)(u)\\
+&= v_c \cdot u\\
+&\leq ||v_c|| \cdot ||u||\\
+&= ||v_c|| \cdot ||av_c||\\
+&= |a| \cdot ||v_c||^2
+\end{align*}
 
 \newpage
 \begin{problem}{5}
