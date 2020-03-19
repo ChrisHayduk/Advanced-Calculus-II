@@ -39,25 +39,135 @@
 \begin{problem}{1}
 \end{problem}
 
-Suppose $f$ is differentiable at $c \in D$. By Corollary 39.7, we have,
+Suppose each $f$ is differentiable at $c \in D$. We know from Theorem 8.10 that for every $x \in \mathbb{R}^n$, we have that $|x_i| \leq ||x|| \leq \sqrt{n} \sup \{|x_1|, \cdots, |x_n|\}$.\\
+
+Now let $\epsilon > 0$. By the differentiability of $f$ at $c$, $\exists \delta(\epsilon) > 0$ such that for every $u \in \mathbb{R}^n$ with $||u|| \leq \delta(\epsilon)$, we have,
+\begin{align*}
+\lim_{||u|| \to 0} \frac{||f(c+u) - f(c) - Df(c)(u)||}{||u||} = 0
+\end{align*}
+
+Note that $f(c+u)$, $f(c)$, and $Df(c)$ are all vectors in $\mathbb{R}^n$. Hence, Theorem 8.10 applies here and we have,
+\begin{align}
+\lim_{||u|| \to 0} \frac{|f_i(c+u) - f_i(c) - Df_i(c)(u)|}{||u||} \leq \lim_{||u|| \to 0} \frac{||f(c+u) - f(c) - Df(c)(u)||}{||u||} = 0
+\end{align}
+
+for every $i \in \{1, \cdots, n\}$.\\
+
+Since $|f_i(c+u) - f_i(c) - Df_i(c)(u)|, \; ||u|| \geq 0$, we have from (1) that 
 
 \begin{align*}
-Df(c)(u) &= u_1 D_1f(c) + \cdots u_m D_mf(c)
+\lim_{||u|| \to 0} \frac{|f_i(c+u) - f_i(c) - Df_i(c)(u)|}{||u||} = 0
 \end{align*}
+
+Thus, each $f_i$ is differentiable at $c$.
+
+Now assume that each $f_i$ is differentiable at $c$. We need to show that $f$ is differentiable at $c$.\\
+
+By the second inequality in Theorem 8.10, we have that $||x|| \leq \sqrt{n} \sup \{|x_1|, \cdots, |x_n|\}$ for every $x \in \mathbb{R}^n$. \\
+
+Let $|f_j(c+u) - f_i(c) - Df_i(c)(u)| = \sup \{|f_1(c+u) - f_1(c) - Df_1(c)(u)|, \cdots, |f_n(c+u) - f_n(c) - Df_n(c)(u)|\}$. Then,
+\begin{align*}
+\lim_{||u|| \to 0} \frac{||f(c+u) - f(c) - Df(c)(u)||}{||u||} &\leq \lim_{||u|| \to 0} \frac{\sqrt{n} \cdot |f_j(c+u) - f_j(c) - Df_{j}(c)(u)|}{||u||}\\
+&= \sqrt{n} \lim_{||u|| \to 0} \frac{|f_j(c+u) - f_j(c) - Df_{j}(c)(u)|}{||u||}\\
+&= \sqrt{n} (0) = 0
+\end{align*}
+
+The last line is obtained from the differentiablity of each $f_i$ at $c$.\\
+
+Since $||f(c+u) - f(c) - Df(c)(u)||, \; ||u|| \geq 0$, we have from the above that,
+
+\begin{align*}
+\lim_{||u|| \to 0} \frac{||f(c+u) - f(c) - Df(c)(u)||}{||u||} = 0
+\end{align*}
+
+Hence, $f$ is differentiable at $c$.
 
 \begin{problem}{2}
 \end{problem}
 
+Take the function $f(x, y) = \begin{cases} 
+      (x^2 + y^2) \sin \left(\frac{1}{\sqrt{x^2 + y^2}} \right) & (x, y) \neq (0, 0) \\
+      0 & (x, y) = (0, 0)
+   \end{cases}$\\
 
+$f$ is a composition of differentiable functions and hence is differentiable when $(x, y) \neq (0, 0)$. When $(x, y) = (0, 0)$, we have,
+\begin{align*}
+\lim_{||u|| \to 0} \frac{||f(0 + u_1, 0 + u_2) - f(0, 0) - L(u)||}{||u||} &= \lim_{||u|| \to 0} \frac{||(u_1^2 + u_2^2) \sin \left(\frac{1}{\sqrt{u_1^2 + u_2^2}} \right) - L(u)||}{||u||}\\
+&\leq \lim_{||u|| \to 0} \frac{||(u_1^2 + u_2^2)||}{||u||} = 0
+\end{align*}
 
+Hence $f$ is also differentiable at $(0, 0)$.\\
+
+Now consider the partial derivatives of $f$,
+\begin{align*}
+\frac{\partial f}{\partial x} (x, y) &= 2x \sin \left(\frac{1}{\sqrt{x^2 + y^2}} \right) - \frac{x \cos \left(\frac{1}{\sqrt{x^2 + y^2}} \right)}{\sqrt{x^2 + y^2}}\\
+\frac{\partial f}{\partial y} (x, y) &= 2y \sin \left(\frac{1}{\sqrt{x^2 + y^2}} \right) - \frac{y \cos \left(\frac{1}{\sqrt{x^2 + y^2}} \right)}{\sqrt{x^2 + y^2}}
+\end{align*}
+
+Both of these functions oscillate wildly near the origin and are thus discontinuous.
+\newpage
 \begin{problem}{3}
 \end{problem}
 
+Suppose $h(x) = f(x) \cdot g(x)$ with $f, g: D \to \mathbb{R}^m$ differentiable at $c \in D$. Then we have,
 
+\begin{align*}
+&h(x) - h(c) - [Df(c)(x-c)g(c) + f(c)Dg(c)(x-c)]\\
+&= [f(x) - f(c) - Df(c)(x-c)]g(x) + Df(c)(x-c)[g(x) - g(c)] +\\
+ &f(c)[g(x) - g(c) - Dg(c)(x-c)]
+\end{align*}
+
+Since $g$ is continuous at $c$, we have that $\exists M$ such that $||g(x)|| < M$ for $||x - c|| < \delta$. Thus, if we choose $||x - c||$ small enough, we have that 
+\begin{align*}
+h(x) - h(c) - [Df(c)(x-c)g(c) + f(c)Dg(c)(x-c)] = 0
+\end{align*}
+
+and thus,
+\begin{align*}
+\lim_{x \to c} \frac{||h(x) - h(c) - [Df(c)(x-c)g(c) + f(c)Dg(c)(x-c)]||}{||x-c||} = 0
+\end{align*}
+
+Hence, $h$ is differentiable at $c$ with derivative
+\begin{align*}
+Dh(c)(x-c) = (Df(c)(x-c)) \cdot g(c) + f(c) \cdot (Dg(c)(x-c))
+\end{align*}
 
 \begin{problem}{4}
 \end{problem}
 
+Suppose $f$ differentiable on an open cell $J \subset \mathbb{R}^n$ and $f: J \to \mathbb{R}$. Also suppose that $D_1f(x) = 0$ for all $x \in J$. By Corollary 39.7, we have that, for every $c \in J$,
 
+\begin{align*}
+Df(c)(u) &= u_1D_1f(c) + u_2D_2f(c) + \cdots + u_nD_nf(c)\\
+&= 0 + u_2D_2f(c) + \cdots + u_nD_nf(c)\\
+&= u_2D_2f(c) + \cdots + u_nD_nf(c)
+\end{align*}
+
+Now let $y, z \in J$ with $y_{2} = z_{2}, \cdots, y_{n} = z_{n}$. Also let $\epsilon > 0$. Then $\exists \delta_1(\epsilon), \delta_2(\epsilon) > 0$ such that,
+\begin{align}
+||f(x) - f(y) - Df(y)(x - y)|| \leq \epsilon ||x - y||
+\end{align}
+
+and
+\begin{align}
+||f(x) - f(z) - Df(z)(x - z)|| \leq \epsilon ||x - z||
+\end{align}
+
+Now, using the facts that $D_1f(x) = 0$ for all $x \in J$ and that $y_{2} = z_{2}, \cdots, y_{n} = z_{n}$ along with Corollary 39.7, we have that,
+\begin{align*}
+Df(y)(x - y) &= (x_1 - y_1)D_1f(y) + (x_2 - y_2)D_2f(y) + \cdots + (x_n - y_n)D_nf(y)\\
+&= (x_2 - y_2)D_2f(y) + \cdots + (x_n - y_n)D_nf(y)\\
+&= (x_2 - z_2)D_2f(y) + \cdots + (x_n - z_n)D_nf(y)
+\end{align*}
+Using (2) and (3) along with the above equations yields,
+\begin{align*}
+&||f(x) - f(y) - Df(y)(x - y) - (f(x) - f(z) - Df(z)(x - z))||\\
+&= ||f(z) - f(y) + Df(z)(x - y) - Df(y)(x - y)||\\
+&= ||f(z) - f(y)||\\
+&\leq ||f(x) - f(y) - Df(y)(x - y)|| + ||f(x) - f(z) - Df(z)(x - z)|| \\
+&\leq \epsilon(||x - y|| + ||x - z||)
+\end{align*}
+
+Since $\epsilon(||x-y|| + ||x-z||)$ can be made arbitrarily small, we have $f(y) = f(z)$.
 
 \end{document}
