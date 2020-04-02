@@ -1,0 +1,295 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb, mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fixltx2e}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newcommand{\textfrac}[2]{\dfrac{\text{#1}}{\text{#2}}}
+
+\begin{document}
+
+\title{Advanced Calculus II: Assignment 6}
+
+\author{Chris Hayduk}
+\date{\today}
+
+\maketitle
+
+\begin{problem}{1}
+\end{problem}
+
+Let $D \subset \mathbb{R}^n$ be open and let $v$ be a $C^1$-map from $D \to \mathbb{R}^n$.\\
+
+Since the mapping $x \mapsto Dv(x)$ of $D$ into $\mathcal{L}(D, \mathbb{R}^n)$ is continuous, we have that for, $\epsilon > 0$, $\exists \delta(\epsilon) > 0$ such that $x, y \in D$ with $||x - y|| < \delta(\epsilon)$ yields,
+\begin{align*}
+||Dv(x) - Dv(y)||_{nn} \leq \epsilon
+\end{align*}
+
+By the triangle inequality we have that,
+\begin{align}
+||Dv(x)||_{nn} \leq \epsilon + ||Dv(y)||_{nn}
+\end{align}
+
+If we fix $y$ and allow $x$ to vary such that $||x - y|| < \delta(\epsilon)$, we can see that (1) holds for every such $x$. That is, $||Dv(x)||_{nn}$ is bounded by $\epsilon + ||Dv(y)||_{nn}$ for every $x \in B(y, \delta(\epsilon))$. Let $M = \epsilon + ||Dv(y)||_{nn}$.\\
+
+Now take the line segment $S$ from $x$ to $y$ which joins these points in $B(y, \delta(\epsilon))$. We can do this because every open ball is a convex set. Since $S \subset B(y, \delta(\epsilon))$, it is clear that for every $c \in S$, we have that $||Dv(c)||_{nn} \leq M$.\\
+
+Hence, by Corollary 40.6, we have,
+\begin{align*}
+||v(x) - v(y)|| \leq M||x - y||
+\end{align*}
+
+Hence, $v$ is Lipschitz continuous when restricted to the neighborhood $B(y, \delta(\epsilon))$ of $y$.\\
+
+Since $y$ was arbitrary, this holds for every $y \in D$. Thus, $v$ is locally Lipschitz continuous.
+
+\begin{problem}{2}
+\end{problem}
+
+In order to show that $F_{\mu, \delta}$ is invertible, by the Inversion Theorem, we need to show that $F$ belongs to class $C^1(\mathbb{R}^2)$. Moreover, for $c \in \mathbb{R}^2$, need to show that $DF(c)$ is a bijection.\\
+
+We have that the Jacobian of $F_{\mu, \delta}$ is,
+
+\begin{align*}
+\begin{bmatrix} 
+\mu - 2\mu x & \delta\\
+\delta & 0\\
+\end{bmatrix}
+\end{align*}
+
+Clearly the derivative exists for all $(x, y) \in \mathbb{R}^2$. Now, as stated on p. 376 of the text, we just need to show that each of the partial derivatives are continuous on $\mathbb{R}^2$ in order to show that the derivative is continuous on $\mathbb{R}^2$.\\
+
+Take the first entry: $\mu - 2\mu x$. Fix $a = (a_1, a_2) \in \mathbb{R}^2$. We have that, for every $x = (x_1, x_2) \in \mathbb{R}^2$,
+\begin{align*}
+||D_1F_1(x) - D_1F_1(a)|| &= || \mu - 2\mu x_1 - (\mu - 2 \mu a_1)||\\
+&= || 2\mu (a_1 - x_1) ||\\
+&= |2 \mu| \cdot |a_1 - x_1|\\
+&= 2\mu \cdot |a_1 - x_1|
+\end{align*}
+
+Since all norms are equivalent up to a constant, let us assume we are using the infinite norm here. Hence, let $\epsilon > 0$. If we choose $\delta(\epsilon) = \frac{\epsilon}{2\mu}$, then for every $||x - a||_{\infty} < \delta(\epsilon)$, we have
+\begin{align*}
+||D_1F_1(x) - D_1F_1(a)|| &= 2\mu \cdot |a_1 - x_1|\\
+&\leq 2\mu \cdot ||a - x||_{\infty}\\
+&= 2\mu \cdot ||x - a||_{\infty}\\
+&< 2\mu \cdot \delta\\
+&= 2\mu \cdot \frac{\epsilon}{2\mu}\\
+&= \epsilon
+\end{align*}
+
+We see that the choice for $\delta(\epsilon)$ does not depend on the choice of $a$. Hence, this holds for all $a \in \mathbb{R}^2$ and hence $D_1F_1$ is continuous on the domain.\\
+
+Now take $D_2F_1$. We have that $||D_2F_1(x) - D_2F_1(a)|| = ||\delta - \delta|| = ||0|| = 0$ for any choice of $x, a \in \mathbb{R}^2$. Hence, we have that $||D_2F_1(x) - D_2F_1(a)|| < \epsilon$ for every $\epsilon > 0$, and thus any choice of $\delta$ works. Hence, $D_2F_1$ is continuous on $\mathbb{R}^2$.\\
+
+By extension, $D_1F_2$ and $D_2F_2$ are continuous on $\mathbb{R}^2$ as well.\\
+
+Hence, we have that $DF(x)$ is continuous on $\mathbb{R}^2$.\\
+
+Now we need to show that for $c \in \mathbb{R}^2$, $DF(c)$ is a bijection. We know this is true if and only if the derivative has an inverse, which is true if and only if the Jacobian determinant is non-zero. Thus, we have,
+\begin{align*}
+J_F(c) &= \begin{vmatrix}
+\mu - 2\mu c_1 & \delta\\
+\delta & 0\\
+\end{vmatrix}\\ &= 0(\mu - 2\mu c_1) - \delta(\delta)\\
+&= - \delta^2
+\end{align*}
+
+Hence, $DF(c)$ is a bijection for any $c \in \mathbb{R}^2$.\\
+
+As a result, $\forall c \in \mathbb{R}^2$, there exists an open neighborhood $U$ of $c$ such that $V = F(U)$ is an open neighborhood of $F(C)$ and the restriction of $F$ to $U$ is a bijection onto $V$ with continuous inverse $G$.\\
+
+Let $G(x, y) = (\frac{y}{\delta}, \frac{1}{\delta}[x - \mu\frac{y}{\delta}(1 - \frac{y}{\delta})])$.\\
+
+Hence, we have that,
+\begin{align*}
+G(F_{\mu, \delta}(x, y)) &= (\frac{\delta x}{\delta}, \frac{1}{\delta}[\mu x(1 - x) + \delta y - \mu\frac{\delta x}{\delta}(1 - \frac{\delta x}{\delta})])\\
+&= (x, \frac{1}{\delta}[\mu x(1 - x) + \delta y - \mu x(1 -  x)])\\
+&= (x, \frac{1}{\delta}[\delta y])\\
+&= (x, y)
+\end{align*}
+
+This holds for every $(x, y) \in \mathbb{R}^2$.\\
+
+Now let us compute the fixed points of $F_{\mu, \delta}$. We know that any fixed point of $G$ is a fixed point of $F_{\mu, \delta}$, so we'll attempt to find the fixed points of $G$,
+\begin{align*}
+G(\alpha) &= (\frac{\alpha_2}{\delta}, \frac{1}{\delta}[\alpha_1 - \mu\frac{\alpha_2}{\delta}(1 - \frac{\alpha_2}{\delta})])
+\end{align*}
+
+So, we must have that,
+\begin{align*}
+\alpha_1 &= \frac{\alpha_2}{\delta}\\
+\alpha_2 &= \frac{1}{\delta}[\alpha_1 - \mu\frac{\alpha_2}{\delta}(1 - \frac{\alpha_2}{\delta})]
+\end{align*}
+
+Plugging the equation for $\alpha_1$ into the $\alpha_2$ equation yields,
+\begin{align*}
+\alpha_2 &= \frac{1}{\delta}[\frac{\alpha_2}{\delta} - \mu\frac{\alpha_2}{\delta}(1 - \frac{\alpha_2}{\delta})]\\
+&= \frac{\alpha_2}{\delta^2} - \mu \frac{\alpha_2}{\delta^2} + \mu \frac{\alpha_2^2}{\delta^3}
+\end{align*}
+
+Hence, we have,
+\begin{align*}
+0 &= \frac{\alpha_2}{\delta^2} - \mu \frac{\alpha_2}{\delta^2} + \mu \frac{\alpha_2^2}{\delta^3} - \alpha_2
+\end{align*}
+
+The solutions to this equation are $\alpha_2 = 0$ and $\alpha_2 = \frac{\delta(\delta^2 + \mu - 1)}{\mu}$.\\
+
+Thus, the two fixed points are the points $(0, 0)$ and $(\frac{\delta^2 + \mu - 1}{\mu}, \frac{\delta(\delta^2 + \mu - 1)}{\mu})$.\\
+
+Now to compute the eigenvalues at each fixed point. At $(0, 0)$, we have
+\begin{align*}
+DF(0, 0) &= \begin{bmatrix} 
+\mu - 2\mu (0) & \delta\\
+\delta & 0\\
+\end{bmatrix}\\
+&= \begin{bmatrix} 
+\mu & \delta\\
+\delta & 0\\
+\end{bmatrix}
+\end{align*}
+
+The eignevalues at $(0, 0)$ are given by,
+\begin{align*}
+\begin{vmatrix} 
+\mu - \lambda & \delta\\
+\delta & -\lambda\\
+\end{vmatrix} &= \lambda^2 - \mu \lambda - \delta^2 = 0
+\end{align*}
+
+Hence, we have,
+\begin{align*}
+\lambda_1 = \frac{1}{2}\left(\mu \pm \sqrt{\mu^2 + 4\delta^2}\right)
+\end{align*}
+
+The eignevalues at $(\frac{\delta^2 + \mu - 1}{\mu}, \frac{\delta(\delta^2 + \mu - 1)}{\mu})$ are given by,
+\begin{align*}
+\begin{vmatrix} 
+\mu - 2\delta^2 - 2\mu + 2 - \lambda & \delta\\
+\delta & -\lambda\\
+\end{vmatrix} &= \lambda^2 - \mu \lambda + 2\delta^2 \lambda + 2\mu \lambda -2\lambda - \delta^2\\
+&= \lambda^2 + \mu \lambda + 2\delta^2 \lambda - 2\lambda - \delta^2 = 0
+\end{align*}
+
+Hence, we have,
+\begin{align*}
+\lambda_2 = \frac{1}{2}\left(\pm \sqrt{(\mu + 2\delta^2 - 2)^2 + 4\delta^2} - \mu - 2\delta^2 + 2\right)
+\end{align*}
+
+
+
+\begin{problem}{3}
+\end{problem}
+
+Let $D \subset \mathbb{R}^n$ be open and let $f \in C^1(D, \mathbb{R}^m)$. By 39.11 in the textbook, we know the derivative at a point $c \in D$ is the linear mapping of $\mathbb{R}^n$ into $\mathbb{R}^m$ determined by the $m \times n$ matrix whose elements are,
+
+\begin{align*}
+Df(c) = \begin{bmatrix} 
+D_1f_1(c) & D_2f_1(c) & \cdots & D_nf_1(c) \\
+D_1f_2(c) & D_2f_2(c) & \cdots & D_nf_2(c)\\
+\cdots  & \cdots  & \cdots & \cdots \\
+D_1f_m(c) & D_2f_m(c) & \cdots & D_nf_m(c) \\
+\end{bmatrix}
+\end{align*}
+\\
+Now let $x, y \in D$. Then we have that,
+\begin{align*}
+Df(x) - Df(y) = \begin{bmatrix} 
+D_1f_1(x) - D_1f_1(y) & D_2f_1(x) - D_2f_1(y) & \cdots & D_nf_1(x) - D_nf_1(y) \\
+D_1f_2(x) - D_1f_2(y) & D_2f_2(x) - D_2f_2(y) & \cdots & D_nf_2(x) - D_nf_2(y)\\
+\cdots  & \cdots  & \cdots & \cdots \\
+D_1f_m(x) - D_1f_m(y) & D_2f_m(x) - D_2f_m(y) & \cdots & D_nf_m(x) - D_nf_m(y) \\
+\end{bmatrix}
+\end{align*}
+\\
+In addition, from Exercise 21.P, we have that $|D_if_j(x) - D_if_j(y)| \leq ||Df(x) - Df(y)||_{nm}$ for all $i, j$.\\
+
+Now let $\epsilon > 0$. Since $Df$ is continuous on $D$ by the fact that $f \in C^1(D, \mathbb{R}^m)$, $\exists \delta(\epsilon) > 0$ such that $\forall x, y \in D$ such that $||x - y|| < \delta(\epsilon)$, we have that $||Df(x) - Df(y)||_{nm} < \epsilon$.\\
+
+Suppose that the $x, y$ chosen above satisfy $||x - y|| < \delta(\epsilon)$. Then we have that,
+\begin{align*}
+|D_if_j(x) - D_if_j(y)| \leq ||Df(x) - Df(y)||_{nm} < \epsilon
+\end{align*}
+\\
+Hence, all the partial derivatives $D_if_j$ are continuous on $D$.
+
+\begin{problem}{4}
+\end{problem}
+
+We have that the functions $g(x,y) = x$, $h(x, y) = y$, and $j(x, y) = -3$ are all clearly continuous on all of $\mathbb{R}^2$. By Theorem 20.7, the following combination of these functions must also then be continuous,
+\begin{align*}
+f(x, y) \cdot f(x,y) \cdot f(x,y) + j(x,y) \cdot f(x,y) \cdot h(x,y) \cdot h(x,y) &= x^3 - 3xy^2\\
+&= f(x, y)
+\end{align*}
+
+Hence, we have that $f(x, y)$ is continuous on all of $\mathbb{R}^2$, and thus is continuous on a neighborhood of the origin.\\
+
+The derivative of $f(x,y)$ is given by,
+\begin{align*}
+Df(x,y) &= \begin{bmatrix}
+3x^2 - 3y^2 & -6xy
+\end{bmatrix}
+\end{align*}
+
+Again, it is clear from a similar argument as the above that both partial derivatives are continuous on all of $\mathbb{R}^2$. Hence, $Df(x,y)$ is continuous on all of $\mathbb{R}^2$ and thus $f \in C^1(\mathbb{R}^2)$.
+
+\begin{problem}{5}
+\end{problem}
+
+Note: Can use Bolzano's Intermediate Value Theorem here (p. 153 in the text)
+
+\begin{problem}{6}
+\end{problem}
+
+Note: $\delta A$ denotes the boundary of the set $A$. We say $x \in \mathbb{R}^n$ is a boundary point of $A$ if for every $r > 0$, $\exists y_1, y_2 \in B(x, r)$ such that $y_1 \in A$ and $y_2 \in \mathbb{R}^n \setminus A = A^C$\\
+
+Now take $A \cap B$. Let $x \in \delta(A \cap B)$. Since $x$ is a boundary point of $A \cap B$, we have that for every $r > 0$, $\exists y_1, y_2 \in B(x, r)$ such that $y_1 \in A \cap B$ and $y_2 \in \mathbb{R}^n \setminus (A \cap B) = (A \cap B)^C = A^C \cup B^C$.\\
+
+We know $y_2$ is in at most one of $A$ or $B$. If $y_2$ is not in contained in either set, then we can see that $y_1 \in A \cap B \implies y_1 \in A$ and $y_2 \not\in A \cup B \implies y_2 \in A^C$. This holds for every $y_1$ and $y_2$. Hence, $x \in \delta A$ and thus $x \in \delta A \cup \delta B$.\\
+
+Now assume $y_2$ is in $A$ without loss of generality. Then we must have that $y_2 \not\in B$, otherwise $y_2 \not\in (A \cap B)^C$. In addition, we have that $y_1 \in A \cap B \implies y_1 \in B$. This holds for every $y_1$ and $y_2$. Hence, $x \in \delta A$ and thus $x \in \delta B \cup \delta B$.\\
+
+Since this holds for every boundary point $x$ of $A \cap B$, we have that $\delta(A \cap B) \subset (\delta A \cup \delta B)$.\\
+
+Now take $A \cup B$. Let $x \in \delta(A \cup B)$. Since $x$ is a boundary point of $A \cup B$, we have that for every $r > 0$, $\exists y_1, y_2 \in B(x, r)$ such that $y_1 \in A \cup B$ and $y_2 \in \mathbb{R}^n \setminus (A \cup B) = (A \cup B)^C = A^C \cap B^C$.\\
+
+Now let $r_n = \{\frac{1}{k}: k \in \mathbb{N}\}$ be a decreasing sequence of $r$. For each $r_k$, select a $y_{r_k} \in B(x, r_k)$. Thus, we now have an infinite sequence $\{y_{r_n}\}_{n \in \mathbb{N}} \in A \cup B$ with $\lim y_{r_n} = x$.\\
+
+Since each $y_{r_k} \in A \cup B$, $y_{r_k}$ must be in $A$, $B$, or both. Let $z_k = 1$ if $y_{r_k} \in A$ and $z_k = 0$ otherwise (ie. if $y_{r_k} \in B \setminus A$). Let $z_n = \{z_k: k \in \mathbb{N}\}$. Since the sequence $\{z_n\}$ is infinite, it is clear that we must have one of the following options: both infinite 1s and 0s, only infinite 1s, and only infinite 0s. Let us assume that we have infinite 1s without loss of generality.\\
+
+Fix $k_1 \in \mathbb{N}$ and take $r_{k_1}$. Since there are infinite 1s, we must have an $r_{k_2}$ with $k_2 > k_1$ such that the corresponding $z_{k_2} = 1$. If we did not, then that would mean there are at most $k_1$ 1s in $\{z_n\}$, a contradiction.\\
+
+Since $r_{k_2} < r_{k_1}$, we have that $B(x, r_{k_2}) \subset B(x, r_{k_1})$. Hence, $y_{r_{k_2}} \in B(x, r_{k_1})$. Note that $y_{r_{k_2}} \in A$ since $z_{k_2} = 1$.\\
+
+This holds for any arbitrary $k_1 \in \mathbb{N}$. As a result, $\exists y_k \in A$ such that $y_k \in B(x, r_{k_{\ell}})$ for every $k_{\ell} \in \mathbb{N}$. Note by the Archimedean Property that if $r \in \mathbb{R}$, we can find an $r_k = \frac{1}{k} < r$. Hence we can use the above formulation for any $r \in \mathbb{R}$/\\
+
+Thus, we have that $y_1 \in A$ and $y_2 \in A^C \cap B^C \implies y_2 \in A^C$ for any choice of $r$. As a result, $x \in \delta A$ and hence $x \in \delta A \cup \delta B$. Since $x$ was an arbitrary boundary point, we have that $\delta(A \cup B) \subset (\delta A \cup \delta B)$. A similar argument applies if we assume $y_1 \not\in A$.\\
+
+Lastly, take $A \setminus B = A \cap B^C$. Let $x \in \delta(A \cap B^C)$. Since $x$ is a boundary point of $A \cap B^C$, we have that for every $r > 0$, $\exists y_1, y_2 \in B(x, r)$ such that $y_1 \in A \cap B^C$ and $y_2 \in \mathbb{R}^n \setminus (A \cap B^C) = (A \cap B^C)^C = A^C \cup B$.\\
+
+We have that $y_1 \in A$ and $y_1 \in B^C$ regardless of the choice of $r$. In addition, we have that $y_2 \in A^C$ or $y_2 \in B$. Using a similar sequence construction as done previously, we can show that there must be infinitely many $y_2 \in A^C$ or $y_2 \in B$. If we have infinitely many $y_2 \in A^C$, then we have that $y_1 \in A$ and $y_2 \in A^C \; \forall r > 0$. Hence, $x \in \delta A \implies x \in \delta A \cup \delta B$.
+
+If we have infinitely many $y_2 \in B$, then we have that $y_1 \in B^C$ and $y_2 \in B \; \forall r > 0$. Hence, $x \in \delta B \implies x \in \delta A \cup \delta B$.\\
+
+Thus, we have that $\delta(A \setminus B) \subset (\delta A \cup \delta B)$.
+\end{document}
