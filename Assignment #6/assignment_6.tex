@@ -256,7 +256,50 @@ Again, it is clear from a similar argument as the above that both partial deriva
 \begin{problem}{5}
 \end{problem}
 
-Note: Can use Bolzano's Intermediate Value Theorem here (p. 153 in the text)
+Let $h(x) = f(x) - g(x)$ for all $x \in D$. By Theorem 40.1(a), we have that,
+\begin{align*}
+Dh(c) = Df(c) - Dg(c) = 0
+\end{align*}
+
+for all points $c$ in the interior of $D$. Since $D$ is open, all of its points are interior points.\\
+
+Take two arbitrary points $x, y \in D$. Since $D$ is open and connected, we can apply Theorem 12.7 from the text, which says that $x$ and $y$ can be joined by a polygonal curve lying entirely in $D$.\\
+
+Let $z_1, \cdots, z_{n-1}$ denote the $k$ endpoints of the lines between $x$ and $y$. Note that each line $L_1 = \{t \in [0,1]: x + t(z_1 - x)\}, L_2 = \{t \in [0,1]: z_1 + t(z_2 - z_1)\}, \cdots, L_n = \{t \in [0,1]: z_{n-1} + t(y - z_{n-1})\}$ is fully contained in $D$.\\
+
+Thus, we can apply the Mean Value Theorem from $\mathbb{R}^n \to \mathbb{R}$ to each line.\\
+
+Start with the first line, $L_1$. We have that,
+\begin{align*}
+h(z_1) - h(x) &= Dh(c_1)(z_{k-1} - x)\\
+&= 0
+\end{align*}
+
+This implies that $h(x) = h(z_1)$.\\
+
+More generally, for every $L_k$, there exists a point $c_k$ on $L_k$ such that,
+\begin{align*}
+h(z_k) - h(z_{k-1}) &= 0
+\end{align*}
+
+and hence $h(z_k) = h(z_{k-1})$.\\
+
+And lastly, we have $L_n$, which yields,
+\begin{align*}
+h(y) - h(z_{n-1}) &= 0
+\end{align*}
+
+which implies that $h(y) = h(z_{n-1})$.\\
+
+Since equality is transitive, we have that $h(x) = h(y)$. Moreover, since $x, y$ were arbitrary in $D$, this formulation applies to any pair of points in $D$. Hence, $h(x)$ is constant on $D$. That is, $h(x) = c$ for some $c \in \mathbb{R}$ and for all $x \in D$.\\
+
+Now recall that $h(x) = f(x) - g(x)$ for all $x \in D$. We thus have,
+\begin{align*}
+&h(x) = f(x) - g(x) = c\\
+\implies &f(x) = g(x) + c
+\end{align*}
+
+as required.
 
 \begin{problem}{6}
 \end{problem}
