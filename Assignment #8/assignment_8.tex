@@ -1,0 +1,156 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb, mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fixltx2e}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newcommand{\textfrac}[2]{\dfrac{\text{#1}}{\text{#2}}}
+
+\begin{document}
+
+\title{Advanced Calculus II: Assignment 8}
+
+\author{Chris Hayduk}
+\date{\today}
+
+\maketitle
+
+\begin{problem}{1}
+\end{problem}
+
+Let $F(x, y) = x^2 + y^2 - 1$. Consider the equation $F(x, y) = x^2 + y^2 - 1 = 0$.\\
+
+In order to prove that the above equation can be solved for small values of $x$ by a positive function $y = y(x)$, we need to show that $F$ belongs to class $C^1(\mathbb{R}^2)$, that $F(a, b) = 0$, and that the linear map defined by $L_2(v) = DF(a, b)(0, v)$, $v \in \mathbb{R}$ is a bijection of $\mathbb{R}$ onto $\mathbb{R}$ (by Implicit Function Theorem).\\
+
+First let $(a, b) = (0, 1)$. Observe that $F(a, b) = F(0, 1) = 0^2 + 1^2 - 1 = 0$ as required.\\
+
+Now by Theorem 41.2, in order to show that $F$ belongs to class $C^1(\mathbb{R}^2)$ (ie. the derivative exists and is continuous), it suffices to show that both partial derivatives are continuous on $\mathbb{R}^2$. Hence, we have,
+\begin{align*}
+D_x F &= 2x\\
+D_y F &= 2y
+\end{align*}
+
+It is clear that both partial derivatives are continuous on all of $\mathbb{R}^2$ since both are comprised of a multiplication of two trivially continuous functions.\\
+
+Finally, we need to show that the linear map defined by $L_2(v) = DF(0, 1)(0, v)$, $v \in \mathbb{R}$ is a bijection of $\mathbb{R}$ onto $\mathbb{R}$.\\
+
+Note from Corollary 39.7 in the text that,
+\begin{align*}
+DF(0, 1)(0, v) &= (0)D_xF(0,1) + (v)D_yF(0, 1)\\
+&= v (2 \cdot 1)\\
+&= 2v
+\end{align*}
+
+It is clear that this function is defined on all of $\mathbb{R}$.\\
+
+Now suppose that $\exists v_1, v_2 \in \mathbb{R}$ such that $L_2(v_1) = L_2(v_2)$. Then we have that,
+\begin{align*}
+&2v_1 = 2v_2\\
+\implies &v_1 = v_2
+\end{align*}
+
+Hence $L_2$ is injective.\\
+
+Now let $u \in \mathbb{R}$. Observe that, since $\mathbb{R}$ is closed under multiplication and $\frac{1}{2} \in \mathbb{R}$, we have that $\frac{u}{2} \in \mathbb{R}$. Hence, for any $u \in \mathbb{R}, \exists \frac{u}{2}$ such that,
+\begin{align*}
+L_2\left(\frac{u}{2}\right) &= 2\left(\frac{u}{2}\right) = u
+\end{align*}
+
+Thus, $L_2$ is surjective.\\
+
+Since $L_2$ is both injective and surjective, it is a bijective function from $\mathbb{R} \to \mathbb{R}$.\\
+
+Since $F(x, y)$ satisfies all of the above properites, we can apply the Implicit Function Theorem. Hence, there exists an open neighborhood $W$ of $0 \in \mathbb{R}$ and a unique function $y(x): W \to \mathbb{R}$ belonging to class $C^1(W)$ such that $y = y(x)$ and,
+\begin{align*}
+F(x, y(x)) = 0 \;\; \forall x \in W
+\end{align*}
+
+\begin{problem}{2}
+\end{problem}
+
+As above, we need to show  we need that $F$ belongs to class $C^1(\mathbb{R}^5)$, that $F(a, b) = 0$, and that the linear map defined by $L_2(v) = DF(a, b)(0, v)$, $v \in \mathbb{R}^2$ is a bijection of $\mathbb{R}^2$ onto $\mathbb{R}^2$ (by Implicit Function Theorem).\\
+
+Observe that $(a, b) = (2, 1, 0, -1, 0)$ and we are given that $F(2, 1, 0, -1, 0) = 0$. Hence this condition is already satisfied.\\
+
+Next, we nee to show that $F$ belongs to class $C^1$. First we will define the derivative of $F$,
+\begin{align*}
+DF(u, v, w, x, y) &= \begin{bmatrix}
+y & v & 1 & v + 2x & u\\
+vw & uw & uv & 1 & 1
+\end{bmatrix}
+\end{align*}
+
+Recall that each partial derivative of $F$ is an entry in the above matrix and that the derivative of $F$ is continuous iff every partial derivative is continuous.\\
+
+From the above, it is clear that all of the partial derivatives are continuous on all of $\mathbb{R}^5$ as they are linear combinations of continuous functions. Hence, $DF(u, v, w, x, y)$ is continuous on all of $\mathbb{R}^5$ and $F$ belongs to class $C^1(\mathbb{R}^5)$\\
+
+Lastly, we need to show that the linear map defined by $L_2(v) = DF(a, b)(0, v)$, $v \in \mathbb{R}^2$ is a bijection of $\mathbb{R}^2$ onto $\mathbb{R}^2$ where $a = (2, 1, 0)$ and $b = (-1, 0)$.\\
+
+Hence, we have,
+\begin{align*}
+L_2(v) &= \begin{bmatrix}
+0 & 1 & 1 & -1 & 2\\
+0 & 0 & 2 & 1 & 1
+\end{bmatrix} \cdot \begin{bmatrix}
+0 \\ 0 \\ 0 \\ v_1 \\ v_2
+\end{bmatrix}\\
+&= \begin{bmatrix}
+-v_1 + 2v_2 \\
+v_1 + v_2
+\end{bmatrix}
+\end{align*}
+
+Now suppose $L_2(v) = L_2(w)$ for $v, w \in \mathbb{R}^2$ with $v \neq w$. Then we have,
+\begin{align*}
+-v_1 + 2v_2 = -w_1 + 2w_2
+\end{align*}
+
+and 
+\begin{align*}
+v_1 + v_2 = w_1 + w_2
+\end{align*}
+
+Subtracting $2$ times the second equation from the first equation yields,
+\begin{align*}
+v_1 = w_1
+\end{align*}
+
+Plugging this identity in yields,
+\begin{align*}
+v_2 = w_2
+\end{align*}
+
+Hence $v = w$ and $L_2$ is injective.\\
+
+Now suppose $w \in \mathbb{R}^2$
+\begin{problem}{3}
+\end{problem}
+
+\begin{problem}{4}
+\end{problem}
+
+\begin{problem}{5}
+\end{problem}
+
+\end{document}
