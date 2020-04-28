@@ -86,7 +86,16 @@ Since $F(x, y)$ satisfies all of the above properites, we can apply the Implicit
 F(x, y(x)) = 0 \;\; \forall x \in W
 \end{align*}
 
-Now we need to show that $y'(x) = \frac{-x}{y}$.
+Now we need to show that $y'(x) = \frac{-x}{y}$.\\
+
+Applying Corollary 41.10 from the text yields,
+\begin{align*}
+Dy(x) &= -[D_{(2)} F(x, y(x))]^{-1} \circ [D_{(1)} F(x, y(x)]\\
+&= -\frac{1}{2y} \circ 2x\\
+&= -\frac{x}{y}
+\end{align*}
+
+as required.
 
 \begin{problem}{2}
 \end{problem}
