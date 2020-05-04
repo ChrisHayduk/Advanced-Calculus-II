@@ -176,15 +176,226 @@ Thus, $F$ satisfies all of the necessary properties. As a result, we can apply t
 F(u, v, w, \varphi(u, v, w)) = 0 \;\; \forall (u, v, w) \in W
 \end{align*}
 
-Now we need to compute $D\varphi (2, 1, 0)$.
+Now we need to compute $D\varphi (2, 1, 0)$.\\
+
+We will start by using Corollary 41.10 from the text,
+\begin{align*}
+D\varphi(u, v, w) &= -[D_{(2)}F(u, v, w, \varphi(u, v, w)]^{-1} \circ [D_{(1)}F(u, v, w, \varphi(u, v, w)]\\
+&= \frac{1}{v+2x - u} \begin{bmatrix}
+1 & -u\\
+-1 & v+2x
+\end{bmatrix} \circ \begin{bmatrix}
+y & v & 1\\
+vw & uw & uv
+\end{bmatrix}\\
+&= \frac{1}{v+2x - u} \begin{bmatrix}
+y - uvw & v - u^2w & 1 - u^2v\\
+-y + v^2w + 2xvw & -v + vuw + 2xuw & -1 + uv^2 + 2xuv
+\end{bmatrix}
+\end{align*}
+
+Hence, we have,
+\begin{align*}
+D\varphi(2,1,0) &= \frac{1}{1 +2x - 2} \begin{bmatrix}
+y - (2)(1)(0) & 1 - 2^2(0) & 1 - 2^2(1)\\
+-y + 1^2(0) + 2x(1)(0) & -1 + (1)(2)(0) + 2x(2)(0) & -1 + 2(1^2) + 2x(2)(1)
+\end{bmatrix}\\
+&= \frac{1}{2x - 1} \begin{bmatrix}
+y & 1 & -3 \\
+-y & -1 & 4x + 1
+\end{bmatrix}
+\end{align*}
 
 \begin{problem}{3}
 \end{problem}
 
+Let $D \subset \mathbb{R}^2$ be open and $f \in C^1(D, \mathbb{R})$. Let $(x_0, y_0) \in D$. If $Df(x_0, y_0) = 0$ and if $\exists \delta > 0$ such that for every $(x,y)$ with $||(x, y) - (x_0, y_0)|| < \delta$, we have $Df(x, y)(u, v) > 0 \; \; \forall (u, v) \in \mathbb{R}^2$, then $f$ has a local maximum at $(x_0, y_0)$ \\
+
+First, observe that $Df(x_0, y_0) = 0$, and hence $f$ has a critical point at $(x_0, y_0)$. The set of points of relative extrema of $f$ is a subset of the set of critical points of $f$ (as stated on p. 398 in the text), so this is a necessary condition for $f$ to have a relative maximum at $(x_0, y_0)$.\\
+
+Now observe that $Df$ exists for all $x \in D$ and is a continuous mapping of $D$ into $\mathscr{L}(\mathbb{R}^2, \mathbb{R})$ since $f \in C^1(D, \mathbb{R})$.
+
 \begin{problem}{4}
 \end{problem}
 
+In order to apply the Implicit Function theorem, we use the following equivalent formulation for this system of equations:
+\begin{align*}
+F(x, y, u, v) &= (x^2 + y^2 - u^2 - v^2, x^2 + 2y^2 + 3u^2 + 4v^2 - 1) = (0, 0)
+\end{align*}
+
+Note that $F(\frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}) = (0, 0)$. We will use this point as our $(a, b)$ in the Implicit Function Theorem.\\
+
+In addition, note that $\Omega = \mathbb{R}^4$ in this case. Hence, $\Omega$ is open as required.\\
+
+We now need to show that $F$ belongs to class $C^1(\mathbb{R}^4)$. Recall that $F$ belongs to class $C^1(\mathbb{R}^4)$ iff all of the first partial derivatives of $F$ are continuous on $\mathbb{R}^4$. We will verify that now,
+\begin{align*}
+DF(x, y, u, v) &= \begin{bmatrix}
+2x & 2y & -2u & -2v\\
+2x & 4y & 6u & 8v
+\end{bmatrix}
+\end{align*}
+
+Again, clearly each partial derivative is continuous on $\mathbb{R}^4$ as they are just degree 1 polynomials. Hence, $F$ belongs to class $C^(\mathbb{R}^4)$.\\
+
+Now we need to show that the linear map defined by $L_2(v) = DF(\frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}})(0, v) \;\; v \in \mathbb{R}^2$ is a bijection of $\mathbb{R}^2$ onto $\mathbb{R}^2$.\\
+
+We will start by defining this linear map,
+\begin{align*}
+L_2(v) &= DF\left(\frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}\right)(0, v)\\
+&= \begin{bmatrix}
+\frac{2}{\sqrt{10}} & \frac{2}{\sqrt{10}} & \frac{-2}{\sqrt{10}} & \frac{-2}{\sqrt{10}}\\
+\frac{2}{\sqrt{10}} & \frac{4}{\sqrt{10}} & \frac{6}{\sqrt{10}} & \frac{8}{\sqrt{10}}
+\end{bmatrix} \cdot \begin{bmatrix}
+0\\
+0\\
+v_1\\
+v_2
+\end{bmatrix}\\
+&= \begin{bmatrix}
+\frac{-2v_1}{\sqrt{10}} - \frac{2v_2}{\sqrt{10}}\\
+\frac{6v_1}{\sqrt{10}} + \frac{8v_2}{\sqrt{10}}
+\end{bmatrix}
+\end{align*}
+
+Now suppose there exists $v, w \in \mathbb{R}^2$ such that $L_2(v) = L_2(w)$. Then we have,
+\begin{align*}
+&\begin{bmatrix}
+\frac{-2v_1}{\sqrt{10}} - \frac{2v_2}{\sqrt{10}}\\
+\frac{6v_1}{\sqrt{10}} + \frac{8v_2}{\sqrt{10}}
+\end{bmatrix} = \begin{bmatrix}
+\frac{-2w_1}{\sqrt{10}} - \frac{2w_2}{\sqrt{10}}\\
+\frac{6w_1}{\sqrt{10}} + \frac{8w_2}{\sqrt{10}}
+\end{bmatrix}\\
+\iff &\begin{bmatrix}
+-2v_1 - 2v_2\\
+6v_1 + 8v_2
+\end{bmatrix} = \begin{bmatrix}
+-2w_1 - 2w_2\\
+6w_1 + 8w_2
+\end{bmatrix}
+\end{align*}
+
+Solving the above system of equations yields $v_1 = w_1$ and $v_2 = w_2$. Hence $v = w$ and $L_2(v)$ is injective.\\
+
+Now let $w \in \mathbb{R}^2$. Consider the equation,
+\begin{align*}
+L_2(v) = w
+\end{align*}
+
+for some $v \in \mathbb{R}^2$. This is equivalent to,
+\begin{align*}
+\begin{bmatrix}
+\frac{-2v_1}{\sqrt{10}} - \frac{2v_2}{\sqrt{10}}\\
+\frac{6v_1}{\sqrt{10}} + \frac{8v_2}{\sqrt{10}}
+\end{bmatrix} &= \begin{bmatrix}
+w_1 \\ w_2
+\end{bmatrix}
+\end{align*}
+
+The first equation yields $v_1 = -\frac{\sqrt{10}}{2}w_1 - v_2$. Plugging into the second equation gives,
+\begin{align*}
+v_2 = \sqrt{\frac{5}{2}} (3w_1 + w_2)
+\end{align*}
+
+Plugging this back into the previous equation yields,
+\begin{align*}
+v_1 &= -\frac{\sqrt{10}}{2} w_1 - \sqrt{\frac{5}{2}} (3w_1 + w_2)\\
+&= \frac{1}{2} \sqrt{10} (-4w_1 - w_2)
+\end{align*}
+
+We have that $w_1, w_2 \in \mathbb{R}$ and $\mathbb{R}$ is closed under addition and multiplication. Hence, $v_1, v_2 \in \mathbb{R}$ and so $v \in \mathbb{R}^2$.\\
+
+Thus, for every $w \in \mathbb{R}^2$, $\exists v \in \mathbb{R}^2$ such that $L_2(v) = w$. As a result, $L_2$ is a bijection from $\mathbb{R}^2$ to $\mathbb{R}^2$.\\
+
+Hence, we can apply the Implicit Function Theorem here. As a result, there exists a neighborhood $W$ of $\left(\frac{1}{\sqrt{10}}, \frac{1}{\sqrt{10}}\right) \in \mathbb{R}^2$ and a unique function $\varphi: W \to \mathbb{R}^2$ belonging to class $C^1(W)$ such that $(u, v) = \varphi(x, y)$ and,
+\begin{align*}
+F(x, y, \varphi_1(x, y), \varphi_2(x, y)) = 0 \; \; \forall v \in \mathbb{R}^2
+\end{align*}
+
+where $u(x, y) = \varphi_1(x,y)$ and $v(x, y) = \varphi_2(x, y)$.\\
+
+We will now use Corollary 41.10 to calculate $Du(x, y) = D\varphi_1(x, y)$ and $Dv(x, y) = \varphi_2(x, y)$,
+\begin{align*}
+D\varphi(x, y) &= -[D_{(2)} F(x, y, \varphi_1(x,y), \varphi_2(x,y)]^{-1} \circ [D_{(1)} F(x, y, \varphi_1(x,y), \varphi_2(x,y)]\\
+&= -\frac{1}{-4uv} \begin{bmatrix}
+8v & 2v\\
+-6u & -2u
+\end{bmatrix} \circ \begin{bmatrix}
+2x & 2y\\
+2x & 4y
+\end{bmatrix}\\
+&= -\frac{1}{-4uv} \begin{bmatrix}
+16xv + 4xv & 16vy + 32vy\\
+-12ux - 4ux & -12uy - 8uy
+\end{bmatrix}\\
+&= -\frac{1}{-4uv} \begin{bmatrix}
+20xv & 48vy\\
+-16ux & -20uy
+\end{bmatrix}\\
+&= \begin{bmatrix}
+\frac{-5x}{u} & \frac{-12y}{u}\\
+\frac{4x}{v} & \frac{5y}{v}
+\end{bmatrix}
+\end{align*}
+
+Hence, 
+\begin{align*}
+Du(x,y) = D\varphi_1 = \begin{bmatrix}
+\frac{-5x}{u} & \frac{-12y}{u}
+\end{bmatrix}
+\end{align*}
+
+and,
+\begin{align*}
+Dv(x,y) = D\varphi_2 = \begin{bmatrix}
+\frac{4x}{v} & \frac{5y}{v}
+\end{bmatrix}
+\end{align*}
+
 \begin{problem}{5}
 \end{problem}
+
+We have $L \in \mathscr{L}(\mathbb{R}^n, \mathbb{R}^n)$ and $r > 0$ such that $||L(x)|| \geq 2r ||x|| \; \; \forall x \in \mathbb{R}^n$.\\
+
+We need to show that $\exists \epsilon >0$ such that if $L' \in \mathscr{L}(\mathbb{R}^n, \mathbb{R}^n)$ with $|||L' - L||| < \epsilon$ (note that we are using the operator norm here), then
+\begin{align}
+||L'(x)|| \geq r||x|| \; \; \forall x \in \mathbb{R}^n
+\end{align}
+
+Define $\epsilon = r$ and let $L' \in \mathscr{L}(\mathbb{R}^n, \mathbb{R}^n)$ such that $|||L' - L||| < \epsilon$.\\
+
+For the first case, we consider $x = 0$. We have that (1) clearly holds.\\
+
+For the second case, consider $||x|| = 1$. Then we have,
+\begin{align*}
+||L'(x)|| &= ||L(x) - L(x) + L'(x)||\\
+&\geq ||L(x)|| - ||L(x) - L'(x)||\\
+&\geq 2r||x|| - r\\
+&= r||x||
+\end{align*}
+
+Note that the last line only holds because we assumed $||x|| = 1$.\\
+
+Now consider the case $x \in \mathbb{R}^n \setminus \{0\}$ with $||x|| \neq 1$.\\
+
+Define $y = \frac{x}{||x||}$, and so $||y|| = 1$. Hence, from case 2, we have,
+\begin{align}
+||L'(y)|| \geq r||y|| = \frac{1}{||x||} r||x||
+\end{align}
+
+In addition, by properties of linear transformations, we have,
+\begin{align}
+||L'(y)|| = \left|\left| \frac{1}{||x||} L'(x)\right|\right| = \frac{1}{||x||} ||L'(x)||
+\end{align}
+
+Combining (2) and (3) yields,
+\begin{align*}
+&\frac{1}{||x||} ||L'(x)|| \geq \frac{1}{||x||} r||x||\\
+\iff &||L'(x)|| \geq r||x||
+\end{align*}
+
+as required.\\
+
+We have proven that the required property holds when $||x|| = 0, ||x|| = 1$, and $||x|| \neq 1, 0$. Hence, we have proven this statement for all possible cases of $x \in \mathbb{R}^n$.
 
 \end{document}
