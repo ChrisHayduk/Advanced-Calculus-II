@@ -39,6 +39,90 @@
 \begin{problem}{1}
 \end{problem}
 
-Note that $S^2$ is the surface of the unit sphere in $\mathbb{R}^3$.
+Note that $S^2 = \{x \in \mathbb{R}^3: ||x|| = 1\}$ is the surface of the unit sphere in $\mathbb{R}^3$.\\
+
+If $n \in \mathbb{N}$, define cubes such that 
+
+\begin{problem}{2}
+\end{problem}
+
+Let $A \subset \mathbb{R}^n$ be a set with content and assume that $f$ and $g$ are integrable on $A$ and $g(x) \geq 0$ for all $x$. Define $m = \inf f(A)$ and $M = \sup f(A)$.\\
+
+Now take a closed cell $I \subset \mathbb{R}^n$ such that $A \subset I$.\\
+
+Consider $\int_I f_I \cdot g_I$. Recall that $L = \int_I f_I \cdot g_I$ if, for every $\epsilon > 0$, there is a partition $P_{\epsilon}$ of $I$ such that if $P$ is any refinement of $P_{\epsilon}$ and $S(P; f_I \cdot g_I)$ is any Riemann sum according to $P$, then $|S(P; f_I \cdot g_I) - L| \leq \epsilon$.\\
+
+For any partition $P = \{J_1, \cdots, J_n\}$, the Riemann sum of $g_I \cdot f_I$ is given by,
+\begin{align*}
+S(P, g_I \cdot f_I) &= \sum_{k=1}^n f(x_k) g(x_k) c(J_k)
+\end{align*}
+
+where $x_k$ is any intermediate point in $J_k$.\\
+
+Note that $m \leq f(x_k)$ and $M \geq f(x_k)$ for any choice of $x_k$. Hence, we have,
+\begin{align}
+m \sum_{k=1}^n  g(x_k) c(J_k) \leq \sum_{k=1}^n f(x_k)  g(x_k) c(J_k) \leq M \sum_{k=1}^n g(x_k) c(J_k)
+\end{align}
+
+Now note that $g$ is integrable on $A$. Let $L_g = \int_A g$. Moreover, $g(x) \geq 0$ for every $x \in A$. Hence, $L_g \geq 0$.\\
+
+As a result, with small enough $\epsilon$, $(1)$ becomes,
+\begin{align*}
+m L_g \leq \sum_{k=1}^n f(x_k)  g(x_k) c(J_k) \leq M L_g
+\end{align*}
+
+If we denote the overall integral as $L$, then we have that $L \in [mL_g, ML_g]$\\
+
+Now take the linear function $h(x) = x \cdot L_g$ defined on the interval $[m, M]$. Note that $L$ is in the range of $h(x)$.\\
+
+By Theorem 21.3 in the text, $h(x)$ is continuous on this interval since it is a linear function. Furthermore, $[m, M]$ is a connected set. Hence, we can apply Bolzano's Intermediate Value Theorem. Since we know $\inf \{h(x)\} = mL_g \leq L \leq ML_g = \sup \{h(x)\}$, we can assert that there is a point $\mu \in [m, M]$ where $h(\mu) = \mu L_g = L$.\\
+
+Thus, since $L_g = \int_A g$ and $L = \int_A fg$, we have that,
+\begin{align*}
+\int_A fg = \mu L_g
+\end{align*}
+as required.
+
+\begin{problem}{3}
+\end{problem}
+
+\begin{enumerate}[label=\alph*)]
+\item Suppose $F \subset \mathbb{R}^n$ is a bounded discrete set.\\
+
+Now suppose $F$ is uncountable. Then there does not exist a bijection between $\mathbb{N}$ and the elements of $F$.\\
+
+However, from the fact that $F$ is discrete, we have that for every $x \in F$, there exists a $\delta$ neighborhood of $x$ [$B(x, \delta) \subset \mathbb{R}^n$] such that $B(x, \delta) \cap F = x$. In addition, since $F$ is bounded, $\exists M > 0$ such that $|x| \leq M$ for every $x \in F$.
+
+Hence, construct 
+
+\item Suppose $F$ is a bounded discrete set. Then by part a), $F$ is countable. By the countable additivitiy of content and the fact $c(\{x\}) = 0$ for every $x \in \mathbb{R}$, we have that, for $f_k \in F$,
+\begin{align*}
+c(F) = \sum_{k=0}^{\infty} c(f_k) = 0
+\end{align*}
+
+Hence, every bounded discrete set $F \subset \mathbb{R}$ has zero content.
+
+\end{enumerate}
+
+\begin{problem}{4}
+\end{problem}
+
+The four theorems that I enjoyed most were:
+\begin{enumerate}
+\item \textbf{Heine-Borel Theorem}: A subset of $\mathbb{R}^p$ is compact if and only if it is closed and bounded.\\
+
+I found that this theorem provided a much more intuitive notion for compactness (at least in $\mathbb{R}^n$) than the definition of compactness gave. In addition, I enjoyed getting a sampling of point set topology to begin the class, and the Heine-Borel theorem had one of the most difficult proofs from that section, so it was fun getting to learn about it.
+
+\item \textbf{Theorem 12.7}: Let $G$ be an open set in $\mathbb{R}^p$. Then $G$ is connected if and only if any pair of points $x, y \in G$ can be joined by a polygonal curve lying entirely in $G$.\\
+
+I found this property of open connected sets to be extremely interesting. I am also currently enrolled in the Computational Geometry graduate course, so I found it very enjoyable to consider polygonal curves from both a topological and computational perspective.
+\item \textbf{Theorem 39.9}: Let $A \subset \mathbb{R}^p$, let $f: A \to \mathbb{R}^q$, and let $c$ be an interior point of $A$. If the partial derivatives of $D_if_i$ $(i = 1, \cdots q, j = 1, \cdots p)$ exist in a neighborhood of $c$ and are continuous at $c$, then $f$ is differentiable at $c$. Moreover, $Df(c)$ is represented by the $q \times p$ matrix (39.11)\\
+
+This theorem and its proof really made the concept of the derivative ``click'' for me. I was finally able to wrap my head around how the derivative and partial derivatives related to one another on a theoretical level, as well as how the partial derivatives can be used to express the derivative.
+
+\item \textbf{Integrability Theorem}: Let $I \subset \mathbb{R}^p$ be a closed cell and let $f: I \to \mathbb{R}$ be bounded. If there exists a subset $E \subset I$ with content zero such that $f$ is continuous on $I \setminus E$, then $f$ is integrable on $I$.\\
+
+I found the concept of removing a set of content zero from the set $I$ while still preserving the value of the integral on $I$ to be incredibly interesting.
+\end{enumerate}
 
 \end{document}
