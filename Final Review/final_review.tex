@@ -1,0 +1,774 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb, mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fixltx2e}
+\usepackage[shortlabels]{enumitem}
+\usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newcommand{\textfrac}[2]{\dfrac{\text{#1}}{\text{#2}}}
+
+\begin{document}
+
+\title{Advanced Calculus II: Important Theorems, Lemmas, and Corollaries}
+
+\author{Chris Hayduk}
+\date{\today}
+
+\maketitle
+
+
+Note that all of the theorem, lemma, and corollary numbers are taken from \textit{The Elements of Real Analysis} (2nd edition) by Robert G. Bartle. The page numbers are also taken from the same text.
+
+\section{Topology}
+
+\subsection*{Section 8 - Vector and Cartesian Spaces}
+
+\begin{theorem}[]{Triangle Inequality}
+Let $V$ be a vector space with a norm defined on $V$ to $\mathbb{R}$ denoted by $x \mapsto ||x||$. Then we have, for all $x, y \in V$,
+\begin{align*}
+||x + y|| \leq ||x|| + ||y||
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[]{Schwarz Inequality}
+Let $V$ be an inner product space and define $||x||$ by $||x|| = \sqrt{x \cdot x}$ for $x \in V$.\\
+
+Then $x \mapsto ||x||$ is a norm on $V$ and satisfies the property that
+\begin{align*}
+|x \cdot y| \leq ||x|| \; ||y||
+\end{align*}
+
+Moreover, if $x$ and $y$ are non-zero, then the equality holds iff there is some strictly positive real numbers $c$ such that $x = cy$.
+\end{theorem}
+
+\subsection*{Section 9 - Open and Closed Sets} 
+
+\begin{theorem}[]{Open Set Properties} The following are properties of open sets:
+\begin{enumerate}[label=\alph*)]
+\item The empty set $\emptyset$ and the entire space $\mathbb{R}^p$ are open in $\mathbb{R}^p$
+\item The intersection of any two open sets is open in $\mathbb{R}^p$.
+\item The union of any collection of open sets is open in $\mathbb{R}^p$
+\end{enumerate}
+\end{theorem}
+\newpage
+\begin{theorem}[]{Closed Set Properties} The following are properties of closed sets:
+\begin{enumerate}[label=\alph*)]
+\item The empty set $\emptyset$ and the entire space $\mathbb{R}^p$ are closed in $\mathbb{R}^p$
+\item The union of any two closed sets is closed in $\mathbb{R}^p$.
+\item The intersection of any collection of closed sets is closed in $\mathbb{R}^p$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}{9.11}
+A subset of $\mathbb{R}$ is open if and only if it is the union of a countable collection of open intervals.
+\end{theorem}
+
+\subsection*{Section 10 - The Nested Cells and Bolzano-Weierstrass Theorem}
+
+\begin{theorem}[Nested Cells]{Theorem}
+Let $(I_k)$ be a sequence of non-empty closed cells in $\mathbb{R}^p$ which is nested in the sense that $I_1 \supset I_2 \supset \cdots \supset I_k \supset \cdots$. Then there exists a point in $\mathbb{R}^p$ which belongs to all of the cells.
+\end{theorem}
+
+\begin{theorem}{10.5}
+A set $F \subset \mathbb{R}^n$ is closed if and only if it contains all of its cluster points.
+\end{theorem}
+
+\begin{theorem}[Bolzano-Weierstrass]{Theorem}
+Every bounded infinite subset of $\mathbb{R}^p$ has a cluster point.
+\end{theorem}
+
+\subsection*{Section 11 - The Heine-Borel Theorem}
+
+\begin{theorem}[Heine-Borel]{Theorem}
+A subset of $\mathbb{R}^p$ is compact if and only if it is closed and bounded.
+\end{theorem}
+
+\begin{theorem}[Cantor Intersection]{Theorem}
+Let $F_1$ be a non-empty closed, bounded subset of $\mathbb{R}^p$ and let
+\begin{align*}
+F_1 \supset F_2 \supset \cdots \supset F_n \supset \cdots
+\end{align*}
+be a sequence of non-empty closed sets. Then there exists a point belonging to all of the sets $\{F_k: k \in \N\}$
+\end{theorem}
+
+\begin{theorem}[Lebesgue Covering]{Theorem}
+Suppose that $\mathscr{G} = \{G_{\alpha}\}$ is a covering of a compact subset $K$ of $\R^p$. There exists a strictly positive number $\lambda$ such that if $x, y$ belong to $K$ and $||x - y|| < \lambda$, then there is a set in $\mathscr{G}$ containing both $x$ and $y$.
+\end{theorem}
+
+\begin{theorem}[Nearest Point]{Theorem}
+Let $F$ be a non-void closed subset of $\mathbb{R}^p$ and let $x$ be a point outside of $F$. Then there exists at least one point $y$ belonging to $F$ such that $||z - x|| \geq ||y - x||$ for all $z \in F$.
+\end{theorem}
+
+\begin{theorem}[Circumscribing]{Theorem}
+Let $F$ be a closed and bounded set in $\mathbb{R}^2$ and let $G$ be an open set which contains $F$. Then there exists a closed curve $C$, lying entirely in $G$ and made up of arcs of a finite number of circles, such that $F$ is surrounded by $C$.
+\end{theorem}
+
+\subsection*{Section 12 - Connected Sets}
+
+\begin{lemma}{12.6}
+An open subset of $\mathbb{R}^p$ is connected if and only if it cannot be expressed as the union of two disjoint non-empty open sets.
+\end{lemma}
+
+\begin{theorem}{12.7}
+Let $G$ be an open set in $\R^p$. Then $G$ is connected if and only if any pair of points $x, y$ in $G$ can be joined by a polygonal curve lying entirely in $G$.
+\end{theorem}
+
+\begin{theorem}{12.8}
+A subset of $\R$ is connected if and only if it is an interval.
+\end{theorem}
+\newpage
+\section{Sequences}
+
+\subsection*{Section 14 - Introduction to Sequences}
+
+\begin{lemma}{14.6}
+A convergent sequence in $\R^p$ is bounded.
+\end{lemma}
+
+\begin{theorem}{14.7}
+A sequence $(x_n)$ in $\R^p$ with $x = (x_{1n}, x_{2n}, \cdots, x_{pn}), n \in \N$ converges to an element $y = (y_1, y_2, \cdots, y_p)$ if and only if the corresponding $p$ sequences of real numbers $(x_{1n}), (x_{2n}), \cdots (x_{pn})$ converge to $y_1, y_2, \cdots, y_p$ respectively.
+\end{theorem}
+
+\begin{theorem}{14.9}
+Let $X = (x_n)$ be a sequence in $\R^p$ and let $x \in \R^p$. Let $A = (a_n)$ be a sequence in $\R$ which is such that 
+\begin{enumerate}[i)]
+\item $\lim (a_n) = 0$
+\item $||x_n - x|| \leq C |a_n|$ for some $C > 0$ and all $n \in \N$
+\end{enumerate}
+
+Then $\lim (x_n) = x$
+\end{theorem}
+
+\subsection*{Section 15 - Subsequences and Combinations}
+
+\begin{lemma}{15.2}
+If a sequence $X$ in $\R^p$ converges to an element $x$, then any subsequence of $X$ also converges to $x$.
+\end{lemma}
+
+\begin{theorem}{15.4}
+If $X = (x_n)$ is a sequence in $\R^p$, then the following statements are equivalent:
+\begin{enumerate}[label=\alph*)]
+\item $X$ does not converge to $x$
+\item There exists a neighborhood $V$ of $x$ such that if $n$ is any natural number, then there is a natural number $m = m(n) \geq n$ such that $x_m$ does not belong to $V$.
+\item There exists a neighborhood $V$ of $x$ and a subsequence $X'$ of $X$ such that none of the elements of $X'$ belongs to $V$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}{15.6}
+The following statements apply to combinations of sequences:
+\begin{enumerate}[label=\alph*)]
+\item Let $X$ and $Y$ be sequences in $\R^p$ which converge to $x$ and $y$ respectively. Then the sequences $X + Y$, $X - Y$, and $X \cdot Y$ converge to $x + y$, $x - y$, and $x \cdot y$ respectively.
+\item Let $X = (x_n)$ be a sequence in $\R^p$ which converges to $x$ and let $A = (a_n)$ be a sequence in $\R$ which converges to $a$. Then the sequence $(a_nx_n)$ in $\R^p$ converges $ax$.
+\item Let $X = (x_n)$ be a sequence in $\R^p$ which converges to $x$ and let $B = (b_n)$ be a sequence of non-zero real numbers which converges to a non-zero number $b$. Then the sequence $(b_n^{-1} x_n)$ in $\R^p$ converges to $b^{-1} x$
+\end{enumerate}
+\end{theorem}
+
+\subsection*{Section 16 - Two Criteria for Convergence}
+
+\begin{theorem}[Monotone Convergence]{Theorem}
+Let $X = (x_n)$ be a sequence of real numbers which is monotone increasing in the sense that
+\begin{align*}
+x_1 \leq x_2 \leq \cdots \leq x_n \leq x_{n+1} \leq \cdots
+\end{align*}
+Then the sequence $X$ converges if and only if it is bounded, in which case $\lim (x_n) = \sup\{x_n\}$
+\end{theorem}
+
+\begin{theorem}[Bolzano-Weierstrass]{Theorem}
+A bounded sequence in $\R^p$ has a convergent subsequence.
+\end{theorem}
+
+\begin{lemma}{16.7}
+If $X = (x_n)$ is a convergent sequence in $\R^p$, then $X$ is a Cauchy sequence.
+\end{lemma}
+
+\begin{lemma}{16.8}
+A Cauchy sequence in $\R^p$ is bounded.
+\end{lemma}
+
+\begin{lemma}{16.9}
+If a subsequence $X'$ of a Cauchy sequence $X$ in $\R^p$ converges to an element $x$, then the entire sequence $X$ converges to $x$.
+\end{lemma}
+
+\begin{theorem}[Cauchy Convergence]{Criterion}
+A sequence in $\R^p$ is convergent if and only if it is a Cauchy sequence.
+\end{theorem}
+\newpage
+\section{Continuity}
+
+\subsection*{Section 20 - Local Properties of Continuous Functions}
+
+\begin{theorem}{20.2}
+Let $a$ be a point in the domain $D(f)$ of the function $f$. The following statements are equivalent:
+\begin{enumerate}[label=\alph*)]
+\item $f$ is continuous at $a$
+\item If $\epsilon > 0$, there exists a number $\delta(\epsilon) > 0$ such that if $x \in D(f)$ is any element such that $||x - a|| < \delta(\epsilon)$, then $||f(x) - f(a)|| < \epsilon$
+\item If $(x_n)$ is any sequence of elements of $D(f)$ which converges to $a$, then the sequence $(f(x_n))$ converges to $f(a)$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Discontinuity]{Criterion}
+The function $f$ is not continuous at a point $a$ in $D(f)$ if and only if there is a sequence $(x_n)$ of elements in $D(f)$ which converges to $a$ but such that the sequence $(f(x_n))$ of images does not converge to $f(a)$
+\end{theorem}
+
+\begin{theorem}{20.4}
+The function $f$ is continuous at a point $a$ in $D(f)$ if and only if for every neighborhood $V$ of $f(a)$ there is a neighborhood $V_1$ of $a$ such that
+\begin{align*}
+V_1 \cap D(f) = f^{-1}(V)
+\end{align*}
+\end{theorem}
+
+\begin{theorem}{20.6}
+Let $f: D(f) \subset \R^p \to \R^q$, $g: D(g) \subset \R^p \to \R^q$, $\varphi: D(\varphi) \subset \R^p \to \R$, and $c \in \R$. If the functions $f$, $g$, $\varphi$ are continuous at a point, then the algebraic combinations,
+\begin{align*}
+f+g, \; \; f-g, \; \; f \cdot g, \; \; cf, \; \; \varphi f, \; \; f/\varphi
+\end{align*}
+are also continuous at this point
+\end{theorem}
+
+\begin{theorem}{20.7}
+If $f$ is continuous at a point, then $|f|$ is also continuous there.
+\end{theorem}
+
+\begin{theorem}{20.8}
+If $f$ is continuous at $a$ and $g$ is continuous at $b = f(a)$, then the composition $g \circ f$ is continuous at $a$.
+\end{theorem}
+
+\subsection*{Section 21 - Linear Functions}
+
+\begin{theorem}{21.2}
+If $f$ is a linear function with domain $\R^p$ and range in $\R^q$, then there are $pq$ real numbers $(c_{ij})$, $1 \leq i \leq q, 1 \leq j \leq p$, such that if $x = (x_1, x_2, \cdots, x_p)$ is any point in $\R^p$, and if $y = (y_1, y_2, \cdots, y_q) = f(x)$ is its image under $f$, then
+\begin{align*}
+y_1 &= c_{11}x_1 + c_{12}x_2 + \cdots + c_{1p}x_p\\
+y_2 &= c_{21}x_1 + c_{22}x_2 + \cdots + c_{2p}x_p\\
+&\vdots\\
+y_q &= c_{q1}x_1 + c_{q2}x_2 + \cdots + c_{qp}x_p
+\end{align*}
+
+Conversely, if $(c_{ij})$ is a collection of $pq$ real numbers, then the function which assigns $x$ in $\R^p$ the element $y$ in $\R^q$ according to the equations above is a linear function with domain $\R^p$ and range in $\R^q$,
+\end{theorem}
+
+\begin{theorem}{21.3}
+If $f$ is a linear function with $\R^p$ and range in $\R^q$, then there exists a positive constant $A$ such that if $u, v$ are any two vectors in $\R^p$, then
+\begin{align*}
+||f(u) - f(v)|| \leq A ||u - v||
+\end{align*}
+
+Therefore, a linear function on $\R^p$ to $\R^q$ is continuous at every point.
+\end{theorem}
+
+\subsection*{Section 22 - Global Properties of Continuous Functions}
+
+\begin{theorem}[Global Continuity]{Theorem}
+The following statements are equivalent:
+\begin{enumerate}[label=\alph*)]
+\item $f$ is continuous on its domain $D(f)$
+\item If $G$ is any open set in $\R^q$, then there exists an open set in $G_1$ in $\R^p$ such that $G_1 \cap D(f) = f^{-1}(G)$
+\item If $H$ is any closed set in $\R^q$, then there exists a closed set $H_1$ in $\R^p$ such that $H_1 \cap D(f) = f^{-1}(H)$
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}{22.2}
+Let $f$ be defined on all of $\R^p$ and with range in $\R^q$. Then the following statements are equivalent:
+\begin{enumerate}[label=\alph*)]
+\item $f$ is continuous on $\R^p$
+\item If $G$ is open in $\R^q$, then $f^{-1}(G)$ is open in $\R^p$
+\item If $H$ is closed in $\R^q$, then $f^{-1}(H)$ is closed in $\R^p$
+\end{enumerate}
+\end{corollary}
+
+\begin{theorem}[Preservation of]{Connectedness}
+If $H \subset D(f)$ is connected in $\R^p$ and $f$ is continuous on $H$, then $f(H)$ is connected in $\R^q$
+\end{theorem}
+
+\begin{theorem}[Bolzano's Intermediate Value]{Theorem}
+Let $H \subset D(f)$ be a connected subset of $\R^p$ and let $f$ be continuous on $H$ and with values in $\R$. If $k$ is any real number satisfying
+\begin{align*}
+\inf \{f(x): x \in H\} < k < \sup \{f(x): x \in H\}
+\end{align*}
+then there is at least one point of $H$ where $f$ takes the value $k$
+\end{theorem}
+
+\begin{theorem}[Preservation of]{Compactness}
+If $K \subset D(f)$ is compact and $f$ is continuous on $K$, then $f(K)$ is compact.
+\end{theorem}
+
+\begin{theorem}[Maximum and Minimum Value]{Theorem}
+Let $K \subset D(f)$ be compact in $\R^p$ and let $f$ be a continuous real valued function. Then there are points $x^*$ and $x_*$ in $K$ such that,
+\begin{align*}
+f(x^*) = \sup \{f(x): x \in K\}, \; \; \; f(x_*) = \inf \{f(x): x \in K\}
+\end{align*}
+\end{theorem}
+
+\begin{corollary}{22.7}
+Let $f$ be a function on $D(f) \subset \R^p$ to $\R^q$ and let $K \subset D(f)$ be compact. If $f$ is continuous on $K$, then there are points $x^*$ and $x_*$ in $K$ such that
+\begin{align*}
+||f(x^*)|| = \sup \{||f(x)||: x \in K\}, \; \; \; ||f(x_*)|| = \inf \{||f(x)||: x \in K\}
+\end{align*}
+\end{corollary}
+
+\begin{corollary}{22.8}
+Let $f: \R^p \to \R^q$ be a linear function. Then $f$ is injective if and only if there exists $m > 0$ such that $||f(x)|| \geq m||x||$ for all $x \in \R^p$
+\end{corollary}
+
+\begin{theorem}[Continuity of the Inverse]{Function}
+Let $K$ be a compact subset of $\R^p$ and let $f$ be a continuous injective function with domain $K$ and range $f(K)$ in $\R^q$. Then the inverse function is continuous with domain $f(K)$ and range $K$.
+\end{theorem}
+
+\subsection*{Section 23 - Uniform Continuity and Fixed Points}
+
+\begin{lemma}{23.2}
+A necessary and sufficient condition that the function $f$ is not uniformly continuous on $A \subset D(f)$ is that there exists $\epsilon_0 > 0$ and two sequences $X = (x_n)$, $Y = (y_n)$ in $A$ such that if $n \in \N$, then $||x_n - y_n|| \leq 1/n$ and $||f(x_n) - f(y_n)|| > \epsilon_0$.
+\end{lemma}
+
+\begin{theorem}[Uniform Continuity]{Theorem}
+Let $f$ be a continuous function with domain $D(f)$ in $\R^p$ and range in $\R^q$. If $K \subset D(f)$ is compact, then $f$ is uniformly continuous on $K$.
+\end{theorem}
+
+\begin{theorem}[Fixed Point]{Theorem}
+Let $f$ be a contraction with domain $\R^p$ and range contained in $\R^p$. Then $f$ has a unique fixed point.
+\end{theorem}
+\newpage
+\section{The Derivative in $\R$}
+
+\subsection*{Section 27 - The Mean Value Theorem}
+
+\begin{lemma}{27.2}
+If $f$ has a derivative at $c$, then $f$ is continuous there.
+\end{lemma}
+
+\begin{lemma}{27.3}
+\begin{enumerate}[label=\alph*)]
+\item If $f$ has a derivative at $c$ and $f'(c) > 0$, there exists a number $\delta > 0$ such that if $x \in D$ and $c < x < c + \delta$, then $f(c) < f(x)$
+\item If $f'(c) < 0$, there exists a number $\delta > 0$ such that if $x \in D$ and $c - \delta < x < c$, then $f(c) < f(x)$
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}[Interior Maximum]{Theorem}
+Let $c$ be an interior point of $D$ at which $f$ has a relative maximum. If the derivative of $f$ at $c$ exists, then it must be equal to zero.
+\end{theorem}
+
+\begin{theorem}[Rolle's]{Theorem}
+Suppose that $f$ is continuous on a closed interval $J = [a, b]$, that the derivative $f'$ exists in the open interval $(a, b)$ and that $f(a) = f(b) = 0$. Then there exists a point $c$ in $(a, b)$ such that $f'(c) = 0$.
+\end{theorem}
+
+\begin{theorem}[Mean Value]{Theorem}
+Suppose that $f$ is continuous on a closed interval $J = [a, b]$ and has a derivative in the open interval $(a, b)$. Then there exists a point $c$ in $(a, b)$ such that
+\begin{align*}
+f(b) - f(a) = f'(c)(b - a)
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[Cauchy Mean Value]{Theorem}
+Let $f, g$ be continuous on $J = [a, b]$ and have derivatives inside $(a, b)$. Then there exists a point $c$ in $(a, b)$ such that
+\begin{align*}
+f'(c)[g(b) - g(a)] = g'(c)[f(b) - f(a)]
+\end{align*}
+\end{theorem}
+
+\begin{theorem}{27.9}
+Suppose that $f$ is continuous on $J = [a, b]$ and that its derivative exists in $(a, b)$
+\begin{enumerate}[i)]
+\item If $f'(x) = 0$ for $a < x < b$, then $f$ is constant on $J$
+\item If $f'(x) = g'(x)$ for $a < x < b$, then $f$ and $g$ differ on $J$ by a constant
+\item If $f'(x) \geq 0$ for $a < x < b$ and if $x_1 \leq x_2$ belongs to $J$, then $f(x_1) \leq f(x_2)$
+\item If $f'(x) > 0$ for $a < x < b$ and if $x_1 < x_2$ belongs to $J$, then $f(x_1) < f(x_2)$
+\item If $f'(x) \geq 0$ for $a < x < a + \delta$, then $a$ is a relative minimum point of $f$
+\item If $f'(x) \geq 0$ for $b - \delta < x < b$, then $b$ is a relative maximum point of $f$
+\item If $|f'(x)| \leq M$ for $a < x < b$, then $f$ satisfies the Lipschitz condition:
+\begin{align*}
+|f(x_1) - f(x_2)| \leq M|x_1 - x_2| \; \; \; \text{for} \; x_1, x_2 \in J
+\end{align*}
+\end{enumerate}
+\end{theorem}
+
+\subsection*{Section 28 - Further Applications of the Mean Value Theorem}
+
+\begin{theorem}[Taylor's]{Theorem}
+Suppose that $n$ is a natural number, that $f$ and its derivatives $f', f'', \cdots, f^{(n-1)}$ are defined and continuous on $J = [a, b]$, and that $f^{(n)}$ exists in $(a, b)$. If $\alpha, \beta$ belong to $J$, then there exists a number $\gamma$ between $\alpha$ and $\beta$ such that
+\begin{align*}
+f(\beta) = f(\alpha) + \frac{f'(\alpha)}{1!}(\beta - \alpha) + \frac{f''(\alpha)}{2!}(\beta - \alpha)^2 + \cdots + \frac{f^{(n-1)}(\alpha)}{(n-1)!}(\beta - \alpha)^{n-1} + \frac{f^{(n)}(\gamma)}{n!}(\beta - \alpha)^n
+\end{align*}
+
+The last term $R_n = \frac{f^{(n)}(\gamma)}{n!}(\beta - \alpha)^n$ is known as the Lagrange form of the remainder.
+\end{theorem}
+\newpage
+\section{The Derivative in $\R^p$}
+
+\subsection*{Section 39 - The Derivative in $\mathbb{R}^p$}
+
+\begin{lemma}{39.5}
+If $f: A \to \R^q$ is differentiable at $c \in A$, then there exist strictly positive numbers $\delta$, $K$ such that if $||x - c|| < \delta$, then
+\begin{align*}
+||f(x) - f(c)|| \leq K ||x-c||
+\end{align*}
+
+In particular, it follows that $f$ is continuous at $x = c$.
+\end{lemma}
+
+\begin{theorem}{39.6}
+If $A \subset \R^p$, if $f: A \to \R^q$ is differentiable at a point $c \in A$, and if $u$ is any element of $\R^p$, then the partial derivative $D_uf(c)$ of $f$ at $c$ with respect to $u$ exists. Moreover,
+\begin{align*}
+D_uf(c) = Df(c)(u)
+\end{align*}
+\end{theorem}
+
+\begin{corollary}{39.7}
+Let $A \subset \R^p$, let $f: A \to \R$ and let $c$ be an interior point of $A$. If the derivative $Df(c)$ exists, then each of the partial derivatives $D_1f(c), \cdots, D_pf(c)$ exist in $\R$ and if $u = (u_1, \cdots, u_p) \in \R^p$, then
+\begin{align*}
+Df(c)(u) = u_1D_1f(c) + \cdots + u_pD_pf(c)
+\end{align*}
+\end{corollary}
+
+\begin{theorem}{39.9}
+Let $A \subset \R^p$, let $f: A \to \R^q$, and let $c$ be an interior point of $A$. If the partial derivatives $D_jf_i \; (i = 1, \cdots, q, j = 1, \cdots p)$ exist in a neighborhood of $c$ and are continuous at $c$, then $f$ is differentiable at $c$. Moreover, $Df(c)$ is represented by a $q \times p$ matrix:
+\begin{align*}
+Df(c) = \begin{bmatrix}
+D_1f_1(c) & D_2f_1(c) & \cdots & D_pf_1(c)\\
+D_1f_2(c) & D_2f_2(c) & \cdots & D_pf_2(c)\\
+\cdots & \cdots & \cdots & \cdots\\
+D_1f_q(c) & D_2f_q(c) & \cdots & D_pf_q(c)
+\end{bmatrix}
+\end{align*}
+
+This is called the Jacobian matrix of the system at point $c$. When $p = q$, the determinant of the matrix is called the Jacobian determinant, or simply the Jacobian of the system at the point $c$. Frequently, the Jacobian determinant is denoted by,
+\begin{align*}
+\frac{\partial(f_1, f_2, \cdots, f_p)}{\partial(x_1, x_2, \cdots, x_p)} \bigg\rvert_{x = c} \; \; \; \text{or} \; \; \; J_f(c)
+\end{align*}
+\end{theorem}
+\newpage
+\subsection*{Section 40 - The Chain Rule and Mean Value Theorems}
+
+\begin{theorem}{40.1}
+Let $A \subset \R^p$ and let $c$ be an interior point of $A$.
+\begin{enumerate}[label=\alph*)]
+\item If $f$ and $g$ are defined on $A$ to $\R^q$ and are differentiable at $c$, and if $\alpha, \beta \in \R$, then the function $h = \alpha f + \beta g$ is differentiable at $c$ and 
+\begin{align*}
+Dh(c) = \alpha Df(c) + \beta Dg(c)
+\end{align*}
+\item If $\varphi: A \to \R$ and $f: A \to \R^q$ are differentiable at $c$, then the product function $k = \varphi f: A \to \R^q$ is differentiable at $c$ and 
+\begin{align*}
+Dk(c)(u) = \{D\varphi(c)(u)\}f(c) + \varphi(c)\{Df(c)(u)\} \; \; \; \text{for} \; u \in \R^p
+\end{align*}
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Chain]{Rule}
+Let $f$ have domain $A \subset \R^p$ and range in $\R^q$, and let $g$ have domain $B \subset \R^q$ and range in $\R^r$. Suppose that $f$ is differentiable at $c$ and that $g$ is differentiable at $b = f(c)$. Then the composition $h = g \circ f$ is differentiable at $c$ and
+\begin{align*}
+Dh(c) = Dg(b) \circ Df(c)
+\end{align*}
+
+Alternatively, we write,
+\begin{align*}
+D(g \circ f)(c) = Dg(f(c)) \circ Df(c)
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[Mean Value Theorem]{40.4}
+Let $f$ be defined on an open subset $\Omega$ of $\R^p$ and have values in $\R$. Suppose that the set $\Omega$ contains the points $a, b$ and the line segment $S$ joining them, and that $f$ is differentiable at every point of this line segment. Then there exists a point $c$ on $S$ such that
+\begin{align*}
+f(b) - f(a) = Df(c)(b-a)
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[Mean Value Theorem]{40.5}
+Let $\Omega \subset \R^p$ be an open set and let $f: \Omega \to \R^q$. Suppose that $\Omega$ contains the points $a, b$ and the line segment $S$ joining these points, and that $f$ is differentiable at every point of $S$. Then there exists a point $c$ on $S$ such that
+\begin{align*}
+||f(b) - f(a)|| \leq ||Df(c)(b - a)||
+\end{align*}
+\end{theorem}
+
+\begin{corollary}{40.6}
+Suppose the hypotheses of Theorem 40.5 are satisfied and that there exists $M > 0$ such that $||Df(x)||_{pq} \leq M$ for all $x \in S$. Then we have
+\begin{align*}
+||f(b) - f(a)|| \leq M||b-a||
+\end{align*}
+\end{corollary}
+
+\begin{theorem}{40.8}
+Suppose that $f$ is defined on a neighborhood $U$ of a point $(x, y) \in \R^2$ with values in $\R$. Suppose that the partial derivative $D_xf$, $D_yf$, and $D_{yx}f$ exist in $U$ and that $D_{yx}f$ is continuous at $(x, y)$. Then the partial derivative $D_{xy}f$ exists at $(x, y)$ and $D_{xy}f(x, y) = D_{yx}f(x, y)$
+\end{theorem}
+
+\begin{theorem}[Taylor's]{Theorem 40.9}
+Suppose that $f$ is a function with open domain $\Omega$ in $\R^p$ and range in $\R$, and suppose that $f$ has continuous partial derivatives of of order $n$ in a neighborhood of every point on a line segment $S$ joining two points $a, b = a + u$ in $\Omega$. Then there exists a point $c$ on $S$ such that
+\begin{align*}
+f(a + u) = f(a) + \frac{1}{1!}Df(a)(u) &+ \frac{1}{2!}D^2f(a)(u)^2 \\
+&+ \cdots + \frac{1}{(n-1)!}D^{n-1}f(a)(u)^{n-1} + \frac{1}{n!}D^nf(c)(u)^n
+\end{align*}
+
+Note that:
+\begin{align*}
+D^2f(a)(u)^2 &= D^2f(a)(u, u)\\
+D^3f(a)(u)^3 &= D^3f(a)(u, u, u)\\
+&\vdots\\
+D^nf(a)(u)^n &= D^nf(a)(u, u, \cdots, u)
+\end{align*}
+
+Also note that:
+\begin{align*}
+D^2f(a)(u, u) = \sum_{i, j = 1}^p D_{ji}f(c)u_iu_j
+\end{align*}
+\end{theorem}
+
+\subsection*{Section 41 - Mapping Theorems and Implicit Functions}
+
+\begin{lemma}{41.3}
+Let $\Omega \subset \R^p$ be an open set and let $f: \Omega \to \R^q$ be differentiable on $\Omega$. Suppose that $\Omega$ contains the points $a, b$ and the line segment $S$ joining these points, and let $x_0 \in \Omega$. Then we have
+\begin{align*}
+||f(b) - f(a) - Df(x_0)(b-a)|| \leq ||b-a|| \sup_{x \in S} \{||Df(x) - Df(x_0)||_{pq} \}
+\end{align*}
+\end{lemma}
+
+\begin{lemma}[Approximation]{Lemma}
+Let $\Omega \subset \R^p$ be open and let $f: \Omega \to \R^q$ belong to Class $C^1(\Omega)$. If $x_0 \in \Omega$ and $\epsilon > 0$, then there exists $\delta(\epsilon) > 0$ such that if $||x_k - x_0|| \leq \delta(\epsilon)$, $k = 1, 2$, then $x_k \in \Omega$ and
+\begin{align*}
+||f(x_1) - f(x_2) - Df(x_0)(x_1 - x_2)|| \leq \epsilon ||x_1 - x_2||
+\end{align*}
+\end{lemma}
+
+\begin{theorem}[Injective Mapping]{Theorem}
+Suppose that $\Omega \subset \R^p$ is open, that $f: \Omega \to \R^q$ belongs to Class $C^1(\Omega)$, and that $L = Df(c)$ is an injection. Then there exists a number $\delta > 0$ such that the restriction of $f$ to $B_{\delta} = \{x \in \R^p: ||x - c|| \leq \delta\}$ is an injection. Moreover, the inverse of the restriction $f \rvert B_{\delta}$ is a continuous function on $f(B_{\delta}) \subset \R^q$ to $B_{\delta} \subset \R^p$.
+\end{theorem}
+
+\begin{theorem}[Surjective Mapping]{Theorem}
+Let $\Omega \subset \R^p$ be open and let $f: \Omega \to \R^q$ belong to Class $C^1(\Omega)$. Suppose that for some $c \in \Omega$, the linear function $L = Df(c)$ is a surjection of $\R^p$ onto $\R^q$. Then there exist numbers $m > 0$ and $\alpha > 0$ such that if $y \in \R^q$ and $||y - f(c)|| \leq \alpha/2m$, then there exists an $x \in \Omega$ such that $||x - c|| \leq \alpha$ and $f(x) = y$.
+\end{theorem}
+
+\begin{theorem}[Open Mapping]{Theorem}
+Let $\Omega \subset \R^p$ be open and let $f: \Omega \to \R^q$ belong to class $C^1(\Omega)$. If for each $x \in \Omega$, the derivative $Df(x)$ is a surjection, and if $G \subset \Omega$ is open, then $f(G)$ is open in $\R^q$.
+\end{theorem}
+
+\begin{theorem}[Inversion Mapping]{Theorem}
+Let $\Omega \subset \R^p$ be open and suppose that $f: \Omega \to \R^p$ belongs to Class $C^1(\Omega)$. If $c \in \Omega$ is such that $Df(c)$ is a bijection, then there exists an open neighborhood $U$ of $c$ such that $V = f(U)$ is an open neighborhood of $f(c)$ and the restriction of $f$ to $U$ is a bijection onto $V$ with continuous inverse $g$. Moreover, $g$ belongs to Class $C^1(V)$ and
+\begin{align*}
+Dg(y) = [Df(g(y))]^{-1} \; \; \; \text{for} \; y \in V
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[Implicit Function]{Theorem}
+Let $\Omega \subset \R^p \times \R^q$ be open and let $(a, b) \in \Omega$. Suppose that $F: \Omega \to \R^q$ belongs to Class $C^1(\Omega)$, that $F(a, b) = 0$, and that the linear map defined by
+\begin{align*}
+L_2(v) = DF(a, b)(0, v), \; \; \; v \in \R^q,
+\end{align*}
+is a bijection of $\R^q$ onto $\R^q$
+
+\begin{enumerate}[label = \alph*)]
+\item Then there exists an open neighborhood $W$ of $a \in \R^p$ and a unique function $\varphi: W \to \R^q$ belonging to Class $C^1(W)$ such that $b \varphi(a)$ and 
+\begin{align*}
+F(x, \varphi(x)) = 0 \; \; \; \text{for all} \; x \in W
+\end{align*}
+\item There exists an open neighborhood $U$ of $(a, b)$ in $\R^p \times \R^q$ such that the pair $(x, y) \in U$ satisfies $F(x, y) = 0$ if and only if $y = \varphi(x)$ for $x \in W$.
+\end{enumerate}
+
+Note that $\R^p \times \R^q$ is equivalent to $\R^{p+q}$
+\end{theorem}
+
+\begin{corollary}{41.10}
+With the hypotheses of the theorem, there exists a $\gamma > 0$ such that if $||x - a|| < \gamma$, then the derivative of $\varphi$ at $x$ is the element of $\mathscr{L}(\R^p, \R^q)$ given by
+\begin{align*}
+D\varphi(x) = -[D_{(2)}F(x, \varphi(x))]^{-1} \circ [D_{(1)}F(x, \varphi(x))]
+\end{align*}
+\end{corollary}
+
+\subsection*{Section 42 - Extremum Problems}
+
+\begin{theorem}{42.1}
+Let $\Omega \subset \R^p$, and let $f: \Omega \to \R$. If an interior point $c$ of $\Omega$ is a point of relative extremum of $f$, and if the partial derivative $D_uf(c)$ of $f$ with respect to a vector $u \in \R^p$ exists, then $D_uf(c) = 0$
+\end{theorem}
+
+\begin{corollary}{42.2}
+Let $\Omega \subset \R^p$, and let $f: \Omega \to \R$. If an interior point $c$ of $\Omega$ is a point of relative extremum of $f$, and if the derivative $Df(c)$ exists, then $Df(c) = 0$.
+\end{corollary}
+
+\begin{theorem}{42.4}
+Let $\Omega \subset \R^P$ be open and let $f: \Omega \to \R$ have continuous second partial derivatives on $\Omega$. If $c \in \Omega$ is a point of relative minimum [respectively, maximum] of $f$, then
+\begin{align*}
+D^2f(c)(w)^2 = \sum_{i, j = 1}^p D_{ij}f(c)w_iw_j \geq 0
+\end{align*}
+
+[respectively, $D^2f(c)(w)^2 \leq 0$] for all $w \in \R^p$.
+\end{theorem}
+
+\begin{theorem}{42.5}
+Let $\Omega \subset \R^p$ be open, let $f: \Omega \to \R$ have continuous second partial derivatives on $\Omega$, and let $c \in \Omega$ be a critical point of $f$
+\begin{enumerate}[label=\alph*)]
+\item If $D^2f(c)(w)^2 > 0$ for all $w \in \R^p$, $w \neq 0$, then $f$ has a relative strict minimum at $c$
+\item If $D^2f(c)(w)^2 < 0$ for all $w \in \R^p$, $w \neq 0$, then $f$ has a relative strict maximum at $c$
+\item If $D^2f(c)(w)^2$ takes on both strictly positive and strictly negative values for $w \in \R^p$, then $f$ has a saddle point at $c$
+\end{enumerate}
+\end{theorem}
+\newpage
+\section{The Integral in $\R^p$}
+
+\subsection*{Section 43 - The Integral in $\mathbb{R}^p$}
+
+\begin{theorem}[Cauchy]{Criterion}
+A bounded function $f: I \to \R$ is integrable on $I$ if and only if for every $\epsilon > 0$ there exists a partition $Q_{\epsilon}$ of $I$ such that if $P$ and $Q$ are partitions of $I$ which are refinements of $Q$, and $S(P; f)$ and $S(Q; f)$ are any corresponding Riemann sums, then
+\begin{align*}
+|S(P; f) - S(Q; f)| \leq \epsilon
+\end{align*}
+\end{theorem}
+
+\begin{theorem}{43.5}
+Let $f$ and $g$ be functions on $A$ to $\R$ which are integrable on $A$ and let $\alpha, \beta \in \R$. Then the function $\alpha f + \beta g$ is integrable on $A$ and
+\begin{align*}
+\int_A (\alpha f + \beta g) = \alpha \int_A f + \beta \int_A g
+\end{align*}
+\end{theorem}
+
+\begin{theorem}{43.6}
+If $f: A \to \R$ is integrable on $A$ and if $f(x) \geq 0$ for $x \in A$, then $\int_A f \geq 0$
+\end{theorem}
+
+\begin{theorem}{43.7}
+Let $f: A \to \R$ be a bounded function and suppose that $A$ has content zero. Then $f$ is integrable on $A$ and $\int_A f = 0$
+\end{theorem}
+
+\begin{theorem}{43.8}
+Let $f, g: A \to \R$ be bounded functions and suppose that $f$ is integrable on $A$. Let $E \subset A$ have content zero and suppose that $f(x) = g(x)$ for all $x \in A \setminus E$. Then $g$ is integrable on $A$ and
+\begin{align*}
+\int_A f = \int_A G
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[Integrability]{Theorem}
+Let $I \subset \R^p$ be a closed cell and let $f: I \to \R$ be bounded. If there exists a subset $E \subset I$ with content zero such that $f$ is continuous on $I \setminus E$, then $f$ is integrable on $I$.
+\end{theorem}
+
+\subsection*{Section 44 - Content and the Integral}
+
+\begin{lemma}{44.3}
+A set $A \subset \R^p$ has content zero if and only if it has content and $c(A) = 0$.
+\end{lemma}
+
+\begin{theorem}{44.4}
+Let $A, B$ belong to $\mathscr{D}(\R^p)$ and let $x \in \R^p$. Note that $\mathscr{D}(R^p)$ is the collection of all subsets of $\R^p$ which have content.
+\begin{enumerate}[label=\alph*)]
+\item The sets $A \cap B$ and $A \cup B$ belong to $\mathscr{D}(\R^p)$ and 
+\begin{align*}
+c(A) + c(B) = c(A \cap B) + c(A \cup B)
+\end{align*}
+\item The sets $A \setminus B$ and $B \setminus A$ belong to $\mathscr{D}(\R^p)$ and
+\begin{align*}
+c(A \cup B) = c(A \setminus B) + c(A \cap B) + c(B \setminus A)
+\end{align*}
+\item If $x + A = \{x + a: a \in A\}$, then $x + A$ belongs to $\mathscr{D}(\R^p)$ and
+\begin{align*}
+c(x + A) = c(A)
+\end{align*}
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}{44.5}
+Let $A$ and $B$ belong to $\mathscr{D}(\R^p)$.
+\begin{enumerate}[label=\alph*)]
+\item If $A \cap B = \emptyset$, then $c(A \cup B) = c(A) + c(B)$
+\item If $A \subset B$, then $c(B \setminus A) = c(B) - c(A)$
+\end{enumerate}
+\end{corollary}
+
+\begin{theorem}{44.6}
+Let $\gamma: \mathscr{D}(\R^p) \to \R$ be a function with the following properties:
+\begin{enumerate}[(i)]
+\item $\gamma(A) \geq 0$ for all $A \in \mathscr{D}(\R^p)$
+\item if $A, B \in \mathscr{D}(\R^p)$ and $A \cap B = \emptyset$, then $\gamma(A \cup B) = \gamma(A) + \gamma(B)$
+\item if $A \in \mathscr{D}(\R^p)$ and $x \in \R^p$, then $\gamma(A) = \gamma(x+A)$
+\item $\gamma(K_0) = 1$
+\end{enumerate}
+
+Then we have $\gamma(A) = c(A)$ for all $A \in \mathscr{D}(\R^p)$
+\end{theorem}
+
+\begin{corollary}{44.7}
+Let $\mu: \mathscr{D}(\R^p) \to \R$ be a function satisfying properties (i), (ii), (iii) from above. Then there exists a constant $m \geq 0$ such that $\mu(A) = mc(A)$ for all $A \in \mathscr{D}(\R^p)$
+\end{corollary}
+
+\begin{theorem}{44.8}
+Let $A \in \mathscr{D}(\R^p)$ and let $f: A \to \R$ be bounded and continuous on $A$. Then $f$ is integrable on $A$
+\end{theorem}
+
+\begin{theorem}{44.9}
+\begin{enumerate}[label=\alph*)]
+\item Let $A_1$ and $A_2$ belong to $\mathscr{D}(\R^p)$ and suppose that $A_1 \cap A_2$ has content zero. If $A = A_1 \cup A_2$ and if $f: A \to \R$ is integrable on $A_1$ and $A_2$, then $f$ is integrable on $A$ and
+\begin{align*}
+\int_A f = \int_{A_1} f + \int_{A_2} f
+\end{align*}
+\item Let $A$ belong to $\mathscr{D}(\R^p)$ and let $A_1, A_2 \in \mathscr{D}(\R^p)$ be such that $A = A_1 \cup A_2$ and such that $A_1 \cap A_2$ has content zero. If $f: A \to \R$ is integrable on $A$, and if the restrictions of $f$ to $A_1$ and $A_2$ are integrable, then Definition 44.1 holds.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}{44.10}
+Let $A \in \mathscr{D}(\R^p)$ and let $f: A \to \R$ be integrable on $A$ and such that $|f(x)| \leq M$ for all $x \in A$. Then
+\begin{align*}
+\left| \int_A f \right| \leq Mc(A)
+\end{align*}
+
+More generally if $f$ is real valued and $m \leq f(x) \leq M$ for all $x \in A$, then
+\begin{align*}
+mc(A) \leq \int_A f \leq Mc(A)
+\end{align*}
+\end{theorem}
+
+\begin{theorem}[Mean Value]{Theorem 44.11}
+Let $A \in \mathscr{D}(\R^p)$ be a connected set and let $f: A \to \R$ be bounded and continuous on $A$. Then there exists a point $p \in A$ such that
+\begin{align*}
+\int_A f = f(p) c(A)
+\end{align*}
+\end{theorem}
+
+\begin{theorem}{44.12}
+If $f$ is continuous on the closed cell $J = [a, b] \times [c, d]$ to $\R$, then
+\begin{align*}
+\int_J f &= \int_c^d \left\{\int_a^b f(x, y) dx \right\} dy\\
+&= \int_a^b \left\{ \int_c^d f(x, y) dy \right\} dx
+\end{align*}
+\end{theorem}
+
+\begin{theorem}{44.13}
+Let $f$ be integrable on the rectangle $J = [a, b] \times [c, d]$ to $\R$ and suppose that, for each $y \in [c, d]$, the function $x \mapsto f(x, y)$ of $[a, b]$ into $\R$ is continuous except possibly for a finite number of points, at which it has one-sided limits. Then
+\begin{align*}
+\int_J f = \int_c^d \left\{ \int_a^b f(x, y) dx \right\} dy
+\end{align*}
+\end{theorem}
+
+\begin{theorem}{44.14}
+Let $A \subset \R^2$ be given by,
+\begin{align*}
+A = \{(x, y): \alpha(y) \leq x \leq \beta(y), c \leq y \leq d\}
+\end{align*}
+where $\alpha$ and $\beta$ are continuous functions on $[c, d]$ with values in $[a, b]$. If $f$ is continuous on $A \to \R$, then $f$ is integrable on $A$ and
+\begin{align*}
+\int_A f = \int_c^d \left\{ \int_{\alpha(y)}^{\beta(y)} f(x, y) dx \right\} dy
+\end{align*}
+\end{theorem}
+
+\subsection*{Section 45 - Transformation of Sets and Integrals}
+
+\begin{theorem}[Change of Variables]{Theorem}
+Let $\Omega \subset \R^p$ be open and suppose that $\varphi: \Omega \to \R^p$ belongs to Class $C^1(\Omega)$, is injective on $\Omega$, and $J_{\varphi}(x) \neq 0$ for $x \in \Omega$. Suppose that $A$ has content, $A^- \subset \Omega$, and $f: \varphi(A) \to \R$ is bounded and continuous. Then,
+\begin{align*}
+\int_{\varphi(A)} f = \int_A (f \circ \varphi) |J_{\varphi}|
+\end{align*}
+\end{theorem}
+
+\end{document}
