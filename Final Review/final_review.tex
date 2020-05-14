@@ -573,7 +573,7 @@ L_2(v) = DF(a, b)(0, v), \; \; \; v \in \R^q,
 is a bijection of $\R^q$ onto $\R^q$
 
 \begin{enumerate}[label = \alph*)]
-\item Then there exists an open neighborhood $W$ of $a \in \R^p$ and a unique function $\varphi: W \to \R^q$ belonging to Class $C^1(W)$ such that $b \varphi(a)$ and 
+\item Then there exists an open neighborhood $W$ of $a \in \R^p$ and a unique function $\varphi: W \to \R^q$ belonging to Class $C^1(W)$ such that $b = \varphi(a)$ and 
 \begin{align*}
 F(x, \varphi(x)) = 0 \; \; \; \text{for all} \; x \in W
 \end{align*}
@@ -623,7 +623,7 @@ Let $\Omega \subset \R^p$ be open, let $f: \Omega \to \R$ have continuous second
 \subsection*{Section 43 - The Integral in $\mathbb{R}^p$}
 
 \begin{theorem}[Cauchy]{Criterion}
-A bounded function $f: I \to \R$ is integrable on $I$ if and only if for every $\epsilon > 0$ there exists a partition $Q_{\epsilon}$ of $I$ such that if $P$ and $Q$ are partitions of $I$ which are refinements of $Q$, and $S(P; f)$ and $S(Q; f)$ are any corresponding Riemann sums, then
+A bounded function $f: I \to \R$ is integrable on $I$ if and only if for every $\epsilon > 0$ there exists a partition $Q_{\epsilon}$ of $I$ such that if $P$ and $Q$ are partitions of $I$ which are refinements of $Q_{\epsilon}$ and $S(P; f)$ and $S(Q; f)$ are any corresponding Riemann sums, then
 \begin{align*}
 |S(P; f) - S(Q; f)| \leq \epsilon
 \end{align*}
@@ -647,7 +647,7 @@ Let $f: A \to \R$ be a bounded function and suppose that $A$ has content zero. T
 \begin{theorem}{43.8}
 Let $f, g: A \to \R$ be bounded functions and suppose that $f$ is integrable on $A$. Let $E \subset A$ have content zero and suppose that $f(x) = g(x)$ for all $x \in A \setminus E$. Then $g$ is integrable on $A$ and
 \begin{align*}
-\int_A f = \int_A G
+\int_A f = \int_A g
 \end{align*}
 \end{theorem}
 
